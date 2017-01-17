@@ -2,7 +2,6 @@ package org.usfirst.frc.team58.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.joystick;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import org.usfirst.frc.team58.robot.RobotMap;
@@ -26,6 +25,8 @@ public class driveTrain {
 	}
 	
 	public void drive(Joystick joy){
-		drive.mecanumDrive_Polar(joy.getAxis(RobotMap.joystickMagnitude), joy.getAxis(RobotMap.joystickDirection), joy.getAxis(RobotMap.joystickRotation));
+		double moveValue = joy.getRawAxis(1);
+		double rotateValue = joy.getRawAxis(5);
+		drive.arcadeDrive(moveValue, rotateValue);
 	}
 }
