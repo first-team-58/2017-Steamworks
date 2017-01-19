@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team58.robot.commands.ExampleCommand;
+import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team58.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -21,6 +22,7 @@ import org.usfirst.frc.team58.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final DriveTrain driveTrain = new DriveTrain();
 	public static OI oi;
 
 	Command autonomousCommand;

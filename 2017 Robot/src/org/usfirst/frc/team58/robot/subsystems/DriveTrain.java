@@ -2,21 +2,23 @@ package org.usfirst.frc.team58.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import org.usfirst.frc.team58.robot.RobotMap;
+import org.usfirst.frc.team58.robot.commands.Drive;
 
-public class driveTrain {
+public class DriveTrain extends Subsystem {
 	private Talon leftFrontMotor, rightFrontMotor, leftRearMotor, rightRearMotor;
 	
 	private RobotDrive drive;
 	
+	private Drive driveCommand = new Drive();
+	
 	public void initDefaultCommand(){
-		
+		setDefaultCommand(driveCommand);
 	}
 	
 	//Constructor
-	public driveTrain(){
+	public DriveTrain(){
 		leftFrontMotor = new Talon(RobotMap.leftFrontMotor);
 		rightFrontMotor = new Talon(RobotMap.rightFrontMotor);
 		leftRearMotor = new Talon(RobotMap.leftRearMotor);
@@ -24,9 +26,7 @@ public class driveTrain {
 		drive = new RobotDrive(leftFrontMotor, rightFrontMotor, leftRearMotor, rightRearMotor);
 	}
 	
-	public void drive(Joystick joy){
-		double moveValue = joy.getRawAxis(1);
-		double rotateValue = joy.getRawAxis(5);
+	public void drive(double moveValue, double rotateValue){
 		drive.arcadeDrive(moveValue, rotateValue);
 	}
 }
