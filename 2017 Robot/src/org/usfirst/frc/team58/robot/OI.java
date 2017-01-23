@@ -1,9 +1,8 @@
 package org.usfirst.frc.team58.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
-
-import org.usfirst.frc.team58.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -39,4 +38,7 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	public Joystick joy = new Joystick(0);
+	public Joystick oper = new Joystick(1);
+	
+	public static Solenoid speedSolenoid = new Solenoid(1);
 }

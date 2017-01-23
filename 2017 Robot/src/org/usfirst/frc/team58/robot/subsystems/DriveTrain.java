@@ -11,19 +11,20 @@ public class DriveTrain extends Subsystem {
 	
 	private RobotDrive drive;
 	
-	private Drive driveCommand = new Drive();
+	
 	
 	public void initDefaultCommand(){
-		setDefaultCommand(driveCommand);
+		setDefaultCommand(new Drive());
 	}
 	
 	//Constructor
 	public DriveTrain(){
+		super();
 		leftFrontMotor = new Talon(RobotMap.leftFrontMotor);
 		rightFrontMotor = new Talon(RobotMap.rightFrontMotor);
-		leftRearMotor = new Talon(RobotMap.leftRearMotor);
-		rightRearMotor = new Talon(RobotMap.rightRearMotor);
-		drive = new RobotDrive(leftFrontMotor, rightFrontMotor, leftRearMotor, rightRearMotor);
+		//leftRearMotor = new Talon(RobotMap.leftRearMotor);
+		//rightRearMotor = new Talon(RobotMap.rightRearMotor);
+		drive = new RobotDrive(leftFrontMotor, rightFrontMotor);
 	}
 	
 	public void drive(double moveValue, double rotateValue){

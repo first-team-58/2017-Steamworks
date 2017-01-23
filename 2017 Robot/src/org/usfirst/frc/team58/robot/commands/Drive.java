@@ -25,8 +25,19 @@ public class Drive extends Command {
     protected void execute() {
     	double moveValue = Robot.oi.joy.getRawAxis(RobotMap.moveAxis);
     	double rotateValue = Robot.oi.joy.getRawAxis(RobotMap.rotateAxis);
+    	double rightTriggerValue = Robot.oi.joy.getRawAxis(RobotMap.rightTriggerAxis);
+    	Robot.driveTrain.drive(-moveValue, rotateValue);
     	
-    	Robot.driveTrain.drive(moveValue, rotateValue);
+    	
+    	/* Tyler 01.23.2017 - if "rightTriggerValue" which is supposedly the 
+    	 * z-axis is greater than or equal to .75 (value might need modification),
+    	 * set speedSolenoid (in OI.java) to true. Otherwise, keep it false.
+    	*/  
+    	if(rightTriggerValue >= .75){
+    		OI.speedSolenoid.set(true);
+    	}else{
+    		OI.speedSolenoid.set(false);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
