@@ -1,5 +1,6 @@
 package org.usfirst.frc.team58.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -40,5 +41,7 @@ public class OI {
 	public Joystick joy = new Joystick(0);
 	public Joystick oper = new Joystick(1);
 	
-	public static Solenoid speedSolenoid = new Solenoid(1);
+	public static Solenoid speedSolenoid = new Solenoid(0);
+	//Compressor c = new Compressor(0); T.Hansen 01.25.2017 this may or may not be needed...
+	
 }
