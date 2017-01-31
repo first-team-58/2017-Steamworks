@@ -43,7 +43,7 @@ public class OI {
 	public Joystick oper = new Joystick(1);
 	
 	Button climber = new JoystickButton(oper, 4);
-	
+	//This creation of the solenoid below might have to be moved into a subsystem (DriveTrain?) - T. Hansen
 	public static Solenoid speedSolenoid = new Solenoid(0);
 	//Compressor c = new Compressor(0); T.Hansen 01.25.2017 this may or may not be needed...
 	
