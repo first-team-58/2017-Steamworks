@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,6 +41,8 @@ public class OI {
 	
 	public Joystick joy = new Joystick(0);
 	public Joystick oper = new Joystick(1);
+	
+	Button climber = new JoystickButton(oper, 4);
 	
 	public static Solenoid speedSolenoid = new Solenoid(0);
 	//Compressor c = new Compressor(0); T.Hansen 01.25.2017 this may or may not be needed...

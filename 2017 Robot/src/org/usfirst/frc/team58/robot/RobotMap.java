@@ -10,6 +10,7 @@ public class RobotMap {
 
 	public static int leftFrontMotor = 1;
 	public static int rightFrontMotor = 0;
+	public static int climberMotor = 2;
 	//public static int leftRearMotor;
 	//public static int rightRearMotor;
 	
