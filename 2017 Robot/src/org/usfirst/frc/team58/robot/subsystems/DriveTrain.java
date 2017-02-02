@@ -5,10 +5,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.RobotDrive;
 import org.usfirst.frc.team58.robot.RobotMap;
 import org.usfirst.frc.team58.robot.commands.Drive;
+import edu.wpi.first.wpilibj.Solenoid;
 
 public class DriveTrain extends Subsystem {
 	private Talon leftFrontMotor, rightFrontMotor, leftRearMotor, rightRearMotor;
-	
+	public static Solenoid speedSolenoid = new Solenoid(0);
 	private RobotDrive drive;
 	
 	

@@ -3,6 +3,7 @@ package org.usfirst.frc.team58.robot.commands;
 import org.usfirst.frc.team58.robot.OI;
 import org.usfirst.frc.team58.robot.Robot;
 import org.usfirst.frc.team58.robot.RobotMap;
+import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -29,14 +30,15 @@ public class Drive extends Command {
     	Robot.driveTrain.drive(-moveValue, -rotateValue);
     	
     	
-    	/* Tyler H. 01.23.2017 - if "rightTriggerValue" which is supposedly the 
+    	/* Tyler H. 02.01.2017 - if "rightTriggerValue" which is the 
     	 * z-axis is greater than or equal to .75 (value might need modification),
-    	 * set speedSolenoid (in OI.java) to true. Otherwise, keep it false.
+    	 * set speedSolenoid (in DriveTrain subsystem) to true. Otherwise, keep it false.
     	*/  
+    	
     	if(rightTriggerValue >= .75){
-    		OI.speedSolenoid.set(true);
+    		DriveTrain.speedSolenoid.set(true);
     	}else{
-    		OI.speedSolenoid.set(false);
+    		DriveTrain.speedSolenoid.set(false);
     	}
     }
 
