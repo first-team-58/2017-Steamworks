@@ -16,6 +16,7 @@ import org.usfirst.frc.team58.robot.commands.RightGear;
 import org.usfirst.frc.team58.robot.commands.RightGearShoot;
 import org.usfirst.frc.team58.robot.commands.RightHopperShoot;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
+import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 
 /**
@@ -31,6 +32,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static Climber climber;
 	public static OI oi;
+	public static Collector collector;
 
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
