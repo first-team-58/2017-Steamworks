@@ -8,6 +8,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team58.robot.commands.LeftGear;
+import org.usfirst.frc.team58.robot.commands.LeftGearShoot;
+import org.usfirst.frc.team58.robot.commands.LeftHopperShoot;
+import org.usfirst.frc.team58.robot.commands.MiddleGear;
+import org.usfirst.frc.team58.robot.commands.RightGear;
+import org.usfirst.frc.team58.robot.commands.RightGearShoot;
+import org.usfirst.frc.team58.robot.commands.RightHopperShoot;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 
