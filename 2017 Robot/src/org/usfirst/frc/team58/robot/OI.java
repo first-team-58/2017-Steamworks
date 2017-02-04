@@ -43,6 +43,8 @@ public class OI {
 	public Joystick oper = new Joystick(1);
 	
 	public Button climberButton = new JoystickButton(oper, 4);
+	public Button shootBotton = new JoystickButton(oper, 3);
+	public Button collectButton = new JoystickButton(oper, 2);
 	
 	//T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem
 	
