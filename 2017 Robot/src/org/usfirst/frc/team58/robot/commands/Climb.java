@@ -20,7 +20,7 @@ public class Climb extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.oi.climberButton.whileHeld(new Robot.climber.climb());
+    	//Robot.oi.climberButton.whileHeld(new Robot.climber.climb());
     }
 
     // Called repeatedly when this Command is scheduled to run

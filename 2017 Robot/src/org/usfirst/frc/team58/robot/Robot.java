@@ -16,6 +16,7 @@ import org.usfirst.frc.team58.robot.commands.RightGear;
 import org.usfirst.frc.team58.robot.commands.RightGearShoot;
 import org.usfirst.frc.team58.robot.commands.RightHopperShoot;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
+import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 
 /**
@@ -31,6 +32,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static Climber climber;
 	public static OI oi;
+	public static Collector collector;
 
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
@@ -46,7 +48,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear();
+		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear());
 		autoChooser.addObject("Left Gear", new LeftGear());
 		autoChooser.addObject("Right Gear", new RightGear());
 		autoChooser.addObject("Right Gear and Shoot", new RightGearShoot());
@@ -85,7 +87,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		autonomousCommand = autoChooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
