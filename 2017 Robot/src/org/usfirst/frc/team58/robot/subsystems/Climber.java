@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Climber extends Subsystem {
 
-	
+	//Not done. Needs something.
 	
 	
 	public void initDefaultCommand(){
@@ -16,7 +16,11 @@ public class Climber extends Subsystem {
 	
 	
 	public Climber(){
-		climberMotor = new Talon(RobotMap.climberMotor);
+		Talon climberMotor = new Talon(RobotMap.climberMotor);
+	}
+	
+	public void climb(){
+		
 	}
 	
 }
