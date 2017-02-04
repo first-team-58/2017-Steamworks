@@ -26,7 +26,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser;
+	SendableChooser<Command> autoChooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -37,11 +37,17 @@ public class Robot extends IterativeRobot {
 		driveTrain = new DriveTrain();
 		climber = new Climber();
 		oi = new OI();
-		
-		chooser = new SendableChooser<>();
-		//chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		//SmartDashboard.putData("Auto mode", chooser);
+		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear();
+		autoChooser.addObject("Left Gear", new LeftGear());
+		autoChooser.addObject("Right Gear", new RightGear());
+		autoChooser.addObject("Right Gear and Shoot", new RightGearShoot());
+		autoChooser.addObject("Left Gear and Shoot", new LeftGearShoot());
+		autoChooser.addObject("Right Hopper and Shoot", new RightHopperShoot());
+		autoChooser.addObject("Left Hopper and Shoot", new LeftHopperShoot());
+		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+				
 	}
 
 	/**
