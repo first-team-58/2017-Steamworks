@@ -18,6 +18,8 @@ import org.usfirst.frc.team58.robot.commands.RightHopperShoot;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
 import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team58.robot.subsystems.PopcornMachine;
+import org.usfirst.frc.team58.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,6 +35,8 @@ public class Robot extends IterativeRobot {
 	public static Climber climber;
 	public static OI oi;
 	public static Collector collector;
+	public static Shooter shooter;
+	public static PopcornMachine popcornMachine;
 
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
@@ -46,6 +50,8 @@ public class Robot extends IterativeRobot {
 		driveTrain = new DriveTrain();
 		climber = new Climber();
 		oi = new OI();
+		shooter = new Shooter();
+		popcornMachine = new PopcornMachine();
 		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear());
