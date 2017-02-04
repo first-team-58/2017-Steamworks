@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear();
+		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear());
 		autoChooser.addObject("Left Gear", new LeftGear());
 		autoChooser.addObject("Right Gear", new RightGear());
 		autoChooser.addObject("Right Gear and Shoot", new RightGearShoot());
@@ -85,7 +85,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		autonomousCommand = autoChooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
