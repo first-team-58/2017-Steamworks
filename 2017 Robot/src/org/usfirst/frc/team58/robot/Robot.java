@@ -3,6 +3,7 @@ package org.usfirst.frc.team58.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -44,7 +45,17 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
 	public static PowerDistributionPanel pdp;
-
+	public static Boolean collectorOn;
+	public static Preferences prefs;
+	
+	//These are the preferences variables.
+	public double climberSpeed;
+	public double collectorBrushSpeed;
+	public double collectorBeltSpeed;
+	public double shooterSpeed;
+	public double nearShootDistance;
+	public double farShootDistance;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -57,19 +68,13 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
-		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
-		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
-		autoChooser.addObject("Left Gear", new ALeftGear());
-		autoChooser.addObject("Right Gear", new ARightGear());
-		autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
-		autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
-		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
-		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
-		autoChooser.addObject("Shoot to the Left", new AShootLeft());
-		autoChooser.addObject("Shoot to the Right", new AShootRight());
-		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
-		autonomousCommand = autoChooser.getSelected();
+		collectorOn = false;
+		
+		//add auto chooser panel
+		addAutoChooser();
+		
+		//add preferences panel.
+		addPreferences();
 				
 	}
 
@@ -121,6 +126,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		
+		SmartDashboard.putNumber("Current", pdp.getCurrent(1));
+		SmartDashboard.putBoolean("Collector On", collectorOn);
 	}
 
 	@Override
@@ -147,5 +155,36 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+	}
+	/**
+	 * Run in robot init, sets up preferences panel in smartdashboard.
+	 */
+	public void addPreferences(){
+		prefs = Preferences.getInstance();
+		climberSpeed = prefs.getDouble("Climber Motor Speed", 0.5);
+		shooterSpeed = prefs.getDouble("Shooter Motor Speed", 0.5);
+		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 0.5);
+		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", 0.5);
+		nearShootDistance = prefs.getDouble("Near Shoot Distance", 0.5);
+		farShootDistance = prefs.getDouble("Far Shoot Distance", 0.5);
+	}
+	
+	/**
+	 * Run in robotinit, sets up autoChooser panel in smartdashboard.
+	 */
+	public void addAutoChooser(){
+		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
+		autoChooser.addObject("Left Gear", new ALeftGear());
+		autoChooser.addObject("Right Gear", new ARightGear());
+		autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
+		autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
+		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
+		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
+		autoChooser.addObject("Shoot to the Left", new AShootLeft());
+		autoChooser.addObject("Shoot to the Right", new AShootRight());
+		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+		autonomousCommand = autoChooser.getSelected();
 	}
 }
