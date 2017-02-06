@@ -4,4 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class FeedFuel extends Command{
 //put command stuff here
+	public FeedFuel(){
+		
+	}
 }

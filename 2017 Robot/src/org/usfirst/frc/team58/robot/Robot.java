@@ -2,6 +2,7 @@
 package org.usfirst.frc.team58.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -40,6 +41,7 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
+	public static PowerDistributionPanel pdp;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -52,16 +54,20 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		shooter = new Shooter();
 		popcornMachine = new PopcornMachine();
+		pdp = new PowerDistributionPanel();
 		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear());
-		autoChooser.addObject("Left Gear", new LeftGear());
-		autoChooser.addObject("Right Gear", new RightGear());
-		autoChooser.addObject("Right Gear and Shoot", new RightGearShoot());
-		autoChooser.addObject("Left Gear and Shoot", new LeftGearShoot());
-		autoChooser.addObject("Right Hopper and Shoot", new RightHopperShoot());
-		autoChooser.addObject("Left Hopper and Shoot", new LeftHopperShoot());
+		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
+		autoChooser.addObject("Left Gear", new ALeftGear());
+		autoChooser.addObject("Right Gear", new ARightGear());
+		autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
+		autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
+		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
+		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
+		autoChooser.addObject("Shoot to the Left", new AShootLeft());
+		autoChooser.addObject("Shoot to the Right", new AShootRight());
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+		autonomousCommand = autoChooser.getSelected();
 				
 	}
 
@@ -93,7 +99,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = autoChooser.getSelected();
+		
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
