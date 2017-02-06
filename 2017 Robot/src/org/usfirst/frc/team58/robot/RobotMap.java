@@ -12,8 +12,9 @@ public class RobotMap {
 	public static int rightFrontMotor = 0;
 	public static int climberMotor = 2;
 	public static int shooterMotor = 3;
-	public static int collectorMotor = 4;
-	public static int popcornMotor = 5;
+	public static int beltMotor = 4;
+	public static int brushMotor = 5;
+	public static int popcornMotor = 6;
 	//public static int rightRearMotor;
 	
 	public static int moveAxis = 1;

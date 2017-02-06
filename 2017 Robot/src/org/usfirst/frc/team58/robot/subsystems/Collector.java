@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Collector extends Subsystem {
-
+	private Talon beltMotor;
+	private Talon brushMotor;
 	//Not done. Needs something.
 	
 	
@@ -17,7 +18,8 @@ public class Collector extends Subsystem {
 	
 	
 	public Collector(){
-		//Talon collectorMotor = new Talon(RobotMap.collectorMotor);
+	beltMotor = new Talon(RobotMap.beltMotor);
+	brushMotor = new Talon(RobotMap.brushMotor);
 	}
 	
 	public void climb(){
