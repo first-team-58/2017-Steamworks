@@ -8,13 +8,15 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team58.robot.commands.LeftGear;
-import org.usfirst.frc.team58.robot.commands.LeftGearShoot;
-import org.usfirst.frc.team58.robot.commands.LeftHopperShoot;
-import org.usfirst.frc.team58.robot.commands.MiddleGear;
-import org.usfirst.frc.team58.robot.commands.RightGear;
-import org.usfirst.frc.team58.robot.commands.RightGearShoot;
-import org.usfirst.frc.team58.robot.commands.RightHopperShoot;
+import org.usfirst.frc.team58.robot.commands.ALeftGear;
+import org.usfirst.frc.team58.robot.commands.ALeftGearShoot;
+import org.usfirst.frc.team58.robot.commands.ALeftHopperShoot;
+import org.usfirst.frc.team58.robot.commands.AMiddleGear;
+import org.usfirst.frc.team58.robot.commands.ARightGear;
+import org.usfirst.frc.team58.robot.commands.ARightGearShoot;
+import org.usfirst.frc.team58.robot.commands.ARightHopperShoot;
+import org.usfirst.frc.team58.robot.commands.AShootLeft;
+import org.usfirst.frc.team58.robot.commands.AShootRight;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
 import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
@@ -54,13 +56,15 @@ public class Robot extends IterativeRobot {
 		popcornMachine = new PopcornMachine();
 		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program: Middle Gear", new MiddleGear());
-		autoChooser.addObject("Left Gear", new LeftGear());
-		autoChooser.addObject("Right Gear", new RightGear());
-		autoChooser.addObject("Right Gear and Shoot", new RightGearShoot());
-		autoChooser.addObject("Left Gear and Shoot", new LeftGearShoot());
-		autoChooser.addObject("Right Hopper and Shoot", new RightHopperShoot());
-		autoChooser.addObject("Left Hopper and Shoot", new LeftHopperShoot());
+		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
+		autoChooser.addObject("Left Gear", new ALeftGear());
+		autoChooser.addObject("Right Gear", new ARightGear());
+		autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
+		autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
+		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
+		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
+		autoChooser.addObject("Shoot to the Left", new AShootLeft());
+		autoChooser.addObject("Shoot to the Right", new AShootRight());
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 				
 	}
