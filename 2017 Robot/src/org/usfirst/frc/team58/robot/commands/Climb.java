@@ -24,12 +24,22 @@ public class Climb extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//Not sure where this is supposed to be.
     	//Robot.oi.climberButton.whileHeld(setDefaultCommand(new Drive());());
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	boolean atTop = Robot.climber.robotAtTop();
+    	double motorSpeed = Robot.getClimberSpeed();
+    	if (atTop = false){
+    		Robot.climber.climb(motorSpeed);
+    		
+    	} else {
+    		Robot.climber.climb(0);
+    		isFinished();
+    	}
     	
     }
 

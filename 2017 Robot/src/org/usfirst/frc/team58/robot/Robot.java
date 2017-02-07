@@ -170,7 +170,7 @@ public class Robot extends IterativeRobot {
 	}
 	
 	/**
-	 * Run in robotinit, sets up autoChooser panel in smartdashboard.
+	 * Run in robot init, sets up autoChooser panel in smartdashboard.
 	 */
 	public void addAutoChooser(){
 		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
@@ -186,5 +186,12 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Shoot to the Right", new AShootRight());
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		autonomousCommand = autoChooser.getSelected();
+	}
+	/**
+	 * To be fixed, static references and non-static field.
+	 * @return climber speed from prefs.
+	 */
+	public static double getClimberSpeed(){
+		return climberSpeed;
 	}
 }
