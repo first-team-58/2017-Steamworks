@@ -12,6 +12,7 @@ public class DriveTrain extends Subsystem {
 	private Talon leftFrontMotor, rightFrontMotor, leftRearMotor, rightRearMotor;
 	public static Solenoid speedSolenoid = new Solenoid(0);
 	private RobotDrive drive;
+	//T.Hansen - Declared encoders leftEnc and rightEnc
 	private Encoder leftEnc;
 	private Encoder rightEnc;
 	
@@ -27,6 +28,7 @@ public class DriveTrain extends Subsystem {
 		leftFrontMotor = new Talon(RobotMap.leftFrontMotor);
 		rightFrontMotor = new Talon(RobotMap.rightFrontMotor);
 		drive = new RobotDrive(leftFrontMotor, rightFrontMotor);
+		//T.Hansen - Contructed encoders leftEnc and rightEnc
 		leftEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 		rightEnc = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
 	}
