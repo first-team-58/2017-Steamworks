@@ -5,11 +5,16 @@ public class AShootRight extends CommandGroup {
 	public AShootRight(){
 		/* T.Hansen 02.06.2017 - This is just a skeleton CommandGroup for
 		 * the aShootRight autonomous
+		 * T.Hansen 02.07.2017 - This autonomous mode, when selected, will
+		 * have the robot drive to the boiler when it is on the right and shoot
+		 * the 10 fuel that we start with into the high boiler. It should
+		 * also drive past the line to score the 5 points.
 		 * write this sort of stuff in here:
 		 * addSequential(DriveForward);	
 		 * addSequential(TurnRight);
 		 * addSequential(FindBoiler);
 		 * addSequential(Shoot);
+		 * addSequential(DrivePastLine);
 		 */
 		}
 }
