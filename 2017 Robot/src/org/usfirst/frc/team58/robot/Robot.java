@@ -49,12 +49,13 @@ public class Robot extends IterativeRobot {
 	public static Preferences prefs;
 	
 	//These are the preferences variables.
-	public double climberSpeed;
-	public double collectorBrushSpeed;
-	public double collectorBeltSpeed;
-	public double shooterSpeed;
-	public double nearShootDistance;
-	public double farShootDistance;
+	public static double climberSpeed;
+	public static double collectorBrushSpeed;
+	public static double collectorBeltSpeed;
+	public static double shooterSpeed;
+	public static double popcornSpeed;
+	public static double nearShootDistance;
+	public static double farShootDistance;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -165,6 +166,7 @@ public class Robot extends IterativeRobot {
 		shooterSpeed = prefs.getDouble("Shooter Motor Speed", 0.5);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 0.5);
 		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", 0.5);
+		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 0.5);
 		nearShootDistance = prefs.getDouble("Near Shoot Distance", 0.5);
 		farShootDistance = prefs.getDouble("Far Shoot Distance", 0.5);
 	}
@@ -193,5 +195,8 @@ public class Robot extends IterativeRobot {
 	 */
 	public static double getClimberSpeed(){
 		return climberSpeed;
+	}
+	public static double getPopcornSpeed(){
+		return popcornSpeed;
 	}
 }
