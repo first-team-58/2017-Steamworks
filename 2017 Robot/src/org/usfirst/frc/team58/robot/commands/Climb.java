@@ -23,6 +23,7 @@ public class Climb extends Command{
     	requires(Robot.collector);
     	requires(Robot.popcornMachine);
     	requires(Robot.shooter);
+  
     }
 
     // Called just before this Command runs the first time
