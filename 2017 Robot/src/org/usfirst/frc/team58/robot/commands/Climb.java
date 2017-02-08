@@ -9,7 +9,10 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Climb extends Command{
-	
+	/* T.Hansen 02.08.2017 - This is the climb command, where we tell 
+	 * the robot to run the motor to spin the "winch" so that we can
+	 * climb up the rope at the end of the match. It also must TURN
+	 * OFF ALL OTHER SUBSYSTEMS BESIDES THE CLIMBER.*/
 	//Not done. Needs button pressed run the motor. Work in progress.
 	
 	public Climb() {

@@ -6,17 +6,21 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class LineUp extends Command{
 	
-	//Not done.
+	/* T. Hansen 02.08.2017 - This is the LineUp command, where we use
+	 * the vision subsystem to get the distance from the robot to the boiler
+	 * and line up to score some fuel in the high boiler. */
 	
 	public LineUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
+    	//requires(Robot.vision);
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.oi.shootButton.whenPressed(run the command);
+    	//Robot.oi.shootButton.whenPressed(run the command);
     }
 
     // Called repeatedly when this Command is scheduled to run

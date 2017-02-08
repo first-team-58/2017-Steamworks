@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class CollectFuel extends Command{
 	
-	//
+	/* T. Hansen 02.08.2017 - This is the CollectFuel command, where we 
+	 * tell the robot to run the motors to spin the conveyer belt and 
+	 * brush so that we can fill up our storage with fuel from the ground. */
 	
 	public CollectFuel() {
         // Use requires() here to declare subsystem dependencies
