@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class FeedFuel extends Command{
 	
+	// T.Hansen 02.08.2017 - SHOULD BE WORKING
+	
 	/* T. Hansen 02.08.2017 - This is the FeedFuel command, which
 	 * tells the robot to run the motor to feed fuel through the popcorn
 	 * machine into the shooter for launching fuel into the high boiler. */
@@ -35,6 +37,7 @@ public class FeedFuel extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.popcornMachine.runPopcornMotor(0);
     }
 
     // Called when another command which requires one or more of the same

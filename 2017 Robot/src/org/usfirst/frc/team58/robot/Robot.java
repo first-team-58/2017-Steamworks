@@ -128,7 +128,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 		
-		SmartDashboard.putNumber("Current", pdp.getCurrent(1));
+		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(3));
 		SmartDashboard.putBoolean("Collector On", collectorOn);
 	}
 
@@ -191,12 +191,22 @@ public class Robot extends IterativeRobot {
 	}
 	/**
 	 * To be fixed, static references and non-static field.
-	 * @return climber speed from prefs.
+	 * @return climberSpeed from prefs.
 	 */
 	public static double getClimberSpeed(){
 		return climberSpeed;
 	}
+	/*
+	 * @return popcornSpeed from prefs.
+	 */
 	public static double getPopcornSpeed(){
 		return popcornSpeed;
+	}
+	/*
+	 * @return collectorBeltSpeed and CollectorBrushSpeed as a double array.
+	 */
+	public static double[] getCollectorSpeed(){
+		double[] collectorSpeeds = {collectorBeltSpeed, collectorBrushSpeed};
+		return collectorSpeeds;
 	}
 }

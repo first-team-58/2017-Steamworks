@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class PopcornMachine extends Subsystem{
+	
+	// T.Hansen 02.08.2017 - SHOULD BE WORKING
+	
 	private Talon popcornTalon;
 	
 	

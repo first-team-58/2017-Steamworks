@@ -7,7 +7,10 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Collector extends Subsystem {
-	//T.Hansen - Declared talons beltMotor and brushMotor
+	
+	//T.Hansen 02.08.2017 - SHOULD BE WORKING
+	
+	//Declared talons beltMotor and brushMotor
 	private Talon beltMotor;
 	private Talon brushMotor;
 	
@@ -24,8 +27,9 @@ public class Collector extends Subsystem {
 	brushMotor = new Talon(RobotMap.brushMotor);
 	}
 	
-	public void climb(){
-		
+	public void collectFuel(double[] speeds){
+		beltMotor.set(speeds[0]);
+		brushMotor.set(speeds[1]);
 	}
 	
 }
