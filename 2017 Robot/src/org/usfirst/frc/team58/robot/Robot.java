@@ -56,6 +56,9 @@ public class Robot extends IterativeRobot {
 	public static double popcornSpeed;
 	public static double nearShootDistance;
 	public static double farShootDistance;
+	public static double shooterP;
+	public static double shooterI;
+	public static double shooterD;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -169,6 +172,9 @@ public class Robot extends IterativeRobot {
 		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 0.5);
 		nearShootDistance = prefs.getDouble("Near Shoot Distance", 0.5);
 		farShootDistance = prefs.getDouble("Far Shoot Distance", 0.5);
+		shooterP = prefs.getDouble("Shooter P Value", 0.5);
+		shooterI = prefs.getDouble("Shooter I Value", 0.5);
+		shooterD = prefs.getDouble("Shooter D Value", 0.5);
 	}
 	
 	/**
