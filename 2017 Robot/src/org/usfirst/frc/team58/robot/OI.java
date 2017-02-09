@@ -39,19 +39,22 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-	
 	public Joystick joy = new Joystick(0);
 	public Joystick oper = new Joystick(1);
-	
-	public Button climberButton = new JoystickButton(oper, 4);
+
+	public JoystickButton climberButton = new JoystickButton(oper, 4);
 	public Button shootButton = new JoystickButton(oper, 3);
 	public Button collectButton = new JoystickButton(oper, 2);
 	
-	//T.Hansen 02.08.2017 - For some reason, it doesn't like this.
-	climberButton.whileHeld(new Climb());
-	shootButton.whileHeld(new Shoot());
-	collectButton.toggleWhenPressed(new CollectFuel());
-	
-	//T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem
+	// J.Manning 02.08.2017 - For assignments like this, you need to have the 
+	// code in some sort of method that actually runs it.
+	public OI() {
+		// T.Hansen 02.08.2017 - For some reason, it doesn't like this.
+		climberButton.whileHeld(new Climb());
+		shootButton.whileHeld(new Shoot());
+		collectButton.toggleWhenPressed(new CollectFuel());
+
+		// T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem
+	}
 	
 }
