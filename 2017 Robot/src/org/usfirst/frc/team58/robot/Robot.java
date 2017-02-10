@@ -79,7 +79,8 @@ public class Robot extends IterativeRobot {
 		
 		//add preferences panel.
 		addPreferences();
-				
+		
+		
 	}
 
 	/**
@@ -130,9 +131,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		
-		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(3));
-		SmartDashboard.putBoolean("Collector On", collectorOn);
 	}
 
 	@Override
@@ -151,6 +149,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(3));
+		SmartDashboard.putBoolean("Collector On", collectorOn);
+		SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
 	}
 
 	/**
@@ -207,6 +209,12 @@ public class Robot extends IterativeRobot {
 	 */
 	public static double getPopcornSpeed(){
 		return popcornSpeed;
+	}
+	/*
+	 * @return shooterSpeed.
+	 */
+	public static double getShooterSpeed(){
+		return shooterSpeed;
 	}
 	/*
 	 * @return collectorBeltSpeed and CollectorBrushSpeed as a double array.

@@ -3,7 +3,7 @@ package org.usfirst.frc.team58.robot.commands;
 import org.usfirst.frc.team58.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-
+//Waiting on vision.
 public class LineUp extends Command{
 	
 	/* T. Hansen 02.08.2017 - This is the LineUp command, where we use
@@ -20,7 +20,7 @@ public class LineUp extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//Robot.oi.shootButton.whenPressed(run the command);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run

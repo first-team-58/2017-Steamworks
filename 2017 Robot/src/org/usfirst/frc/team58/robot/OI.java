@@ -45,14 +45,16 @@ public class OI {
 	public JoystickButton climberButton = new JoystickButton(oper, 4);
 	public Button shootButton = new JoystickButton(oper, 3);
 	public Button collectButton = new JoystickButton(oper, 2);
+	public Button spinUpButton = new JoystickButton(oper, 1);
 	
 	// J.Manning 02.08.2017 - For assignments like this, you need to have the 
 	// code in some sort of method that actually runs it.
 	public OI() {
 		// T.Hansen 02.08.2017 - For some reason, it doesn't like this.
 		climberButton.whileHeld(new Climb());
-		shootButton.whileHeld(new Shoot());
+		shootButton.whileHeld(new FeedFuel());
 		collectButton.toggleWhenPressed(new CollectFuel());
+		spinUpButton.whenPressed(new SpinUp());
 
 		// T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem
 	}

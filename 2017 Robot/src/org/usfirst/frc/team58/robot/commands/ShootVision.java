@@ -1,8 +1,8 @@
 package org.usfirst.frc.team58.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class Shoot extends CommandGroup {
-	public Shoot(){
+public class ShootVision extends CommandGroup {
+	public ShootVision(){
 	/* T. Hansen 02.08.2017 - This is the shoot CommandGroup, and it is
 	 * here that we will use the commands such as LineUp, SpinUp and FeedFuel
 	 * to launch fuel into the high boiler. */

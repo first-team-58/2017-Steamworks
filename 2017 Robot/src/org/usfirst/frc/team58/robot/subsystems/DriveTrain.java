@@ -36,4 +36,17 @@ public class DriveTrain extends Subsystem {
 	public void drive(double moveValue, double rotateValue){
 		drive.arcadeDrive(moveValue, rotateValue);
 	}
+	
+	public double getDistance(){
+		double leftDistance = leftEnc.getDistance();
+		double rightDistance = rightEnc.getDistance();
+		double averageDistance = leftDistance / 2 + rightDistance / 2;
+		return averageDistance;
+	}
+	
+	public void resetDistance(){
+		leftEnc.reset();
+		rightEnc.reset();
+	}
+
 }
