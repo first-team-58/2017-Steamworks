@@ -14,6 +14,10 @@ public class ARightGear extends CommandGroup{
 		 * addSequential(FindLift);
 		 * addSequential(DriveTowardsLift);
 		 */
-	
+		
+		//These values are subject to change.
+		addSequential(new DriveStraight(90));
+		addSequential(new Rotate(-60));
+		addSequential(new DriveStraight(30));
 	}
 }

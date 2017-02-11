@@ -13,8 +13,14 @@ public class DriveStraight extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
+<<<<<<< HEAD
+    	double motorSpeed = Robot.getPopcornSpeed();
+    	Robot.popcornMachine.runPopcornMotor(motorSpeed);
+    	
+=======
     	//set gyro angle to zero
   
+>>>>>>> 759dbed6c3ff915192fefbae22b052811389c0a1
     }
 
     // Called repeatedly when this Command is scheduled to run

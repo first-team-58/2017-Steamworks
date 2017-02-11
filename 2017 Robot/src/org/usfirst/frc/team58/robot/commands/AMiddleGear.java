@@ -14,6 +14,6 @@ public class AMiddleGear extends CommandGroup{
 		 * addSequential(FindLift);
 		 * addSequential(DriveTowardsLift);
 		 */
-	
+		addSequential(new DriveStraight(80));
 	}
 }

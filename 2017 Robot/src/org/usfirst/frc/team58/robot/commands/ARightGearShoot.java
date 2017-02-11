@@ -17,6 +17,8 @@ public class ARightGearShoot extends CommandGroup{
 		 * addSequential(TurnAround);
 		 * addSequential(Shoot);
 		 */
-	
+		addSequential(new ARightGear());
+		addSequential(new DriveStraight(-20));
+		//We'll have to add rotate and shoot. Unsure how much.
 	}
 }

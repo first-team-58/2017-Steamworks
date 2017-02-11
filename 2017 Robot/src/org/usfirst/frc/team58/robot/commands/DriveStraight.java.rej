@@ -1,0 +1,9 @@
+diff a/2017 Robot/src/org/usfirst/frc/team58/robot/commands/DriveStraight.java b/2017 Robot/src/org/usfirst/frc/team58/robot/commands/DriveStraight.java	(rejected hunks)
+@@ -15,6 +15,7 @@
+     protected void initialize() {
+     	double motorSpeed = Robot.getPopcornSpeed();
+     	Robot.popcornMachine.runPopcornMotor(motorSpeed);
++    	
+     }
+ 
+     // Called repeatedly when this Command is scheduled to run
