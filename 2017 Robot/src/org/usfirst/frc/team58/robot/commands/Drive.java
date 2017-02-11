@@ -28,6 +28,7 @@ public class Drive extends Command {
     	double rotateValue = Robot.oi.joy.getRawAxis(RobotMap.rotateAxis);
     	double rightTriggerValue = Robot.oi.joy.getRawAxis(RobotMap.rightTriggerAxis);
     	Robot.driveTrain.drive(-moveValue, -rotateValue);
+
     	
     	
     	/* Tyler H. 02.01.2017 - if "rightTriggerValue" which is the 
