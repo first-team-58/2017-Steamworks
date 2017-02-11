@@ -1,6 +1,7 @@
 package org.usfirst.frc.team58.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -10,13 +11,14 @@ import org.usfirst.frc.team58.robot.RobotMap;
 import org.usfirst.frc.team58.robot.commands.Drive;
 import edu.wpi.first.wpilibj.Solenoid;
 
-public class DriveTrain extends Subsystem {
-	private Talon leftMotor, rightMotor;
+public class DriveTrain extends PIDSubsystem {
+	public static Talon leftMotor;
+	public static Talon rightMotor;
 	public static Solenoid speedSolenoid = new Solenoid(0);
 	private RobotDrive drive;
 	//T.Hansen - Declared encoders leftEnc and rightEnc
-	private Encoder leftEnc;
-	private Encoder rightEnc;
+	private static Encoder leftEnc;
+	private static Encoder rightEnc;
 	//private static AHRS navx = new AHRS(SPI.PortkMXP);
 	
 	Encoder rightEncoder;
@@ -27,7 +29,7 @@ public class DriveTrain extends Subsystem {
 	
 	//Constructor
 	public DriveTrain(){
-		super();
+		super("PID", 1.0, 1.0, 1.0);
 		leftMotor = new Talon(RobotMap.leftMotor);
 		rightMotor = new Talon(RobotMap.rightMotor);
 		drive = new RobotDrive(leftMotor, rightMotor);
@@ -36,6 +38,7 @@ public class DriveTrain extends Subsystem {
 		rightEnc = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
 		leftEnc.setDistancePerPulse(12);
 		rightEnc.setDistancePerPulse(12);
+		
 	}
 	
 	public void drive(double moveValue, double rotateValue){
@@ -44,26 +47,30 @@ public class DriveTrain extends Subsystem {
 	
 	public void driveStraight(double speed){
 		drive.arcadeDrive(speed, 0);
-		
 		double ratio = getLeft() / getRight();
 		
 	}
 
-	public double getDistance(){
+	public static double getDistance(){
 		double leftDistance = leftEnc.getDistance();
 		double rightDistance = rightEnc.getDistance();
 		double averageDistance = leftDistance / 2 + rightDistance / 2;
 		return averageDistance;
 	}
 	
-	public double getLeft(){
+	public static double getLeft(){
 		double leftEncValue = leftEnc.getRate();
 		return leftEncValue;
 	}
 	
-	public double getRight(){
+	public static double getRight(){
 		double rightEncValue = rightEnc.getRate();
 		return rightEncValue;
+	}
+	
+	//function that averages the rates of each encoder
+	public static double getAverageRate(){
+		return (getRight() + getLeft()) / 2;
 	}
 	
 	public void resetDistance(){
@@ -71,4 +78,22 @@ public class DriveTrain extends Subsystem {
 		rightEnc.reset();
 	}
 
+	@Override
+	protected double returnPIDInput() {
+		// TODO Auto-generated method stub
+		return getDistance();
+	}
+
+	public double getAngleCorrection() {
+		//Change this to the navx code once it is imported.
+		return 0.0;
+	}
+	
+	@Override
+	protected void usePIDOutput(double output) {
+		// TODO Auto-generated method stub
+		drive.arcadeDrive(output, getAngleCorrection());
+	}
+
 }
+
