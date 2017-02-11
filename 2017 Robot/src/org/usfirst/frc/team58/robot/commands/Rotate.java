@@ -4,33 +4,44 @@ import org.usfirst.frc.team58.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class DriveStraight extends Command{
-	public DriveStraight(double distance) {
+public class Rotate extends Command{
+	public double angle;
+	
+	public Rotate(double angleN) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+		angle = angleN;
     	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//set gyro angle to zero
-  
+    	Robot.driveTrain.gyroReset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	if(angle < -0.5){
+    		Robot.driveTrain.drive(0, -Robot.getRotateSpeed());
+    	} else if(angle > 0.5){
+    		Robot.driveTrain.drive(0, Robot.getRotateSpeed());
+    	}
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if(angle > -0.5 && angle < 0.5){
+    		return true;
+    	} else{
+    		return false;
+    	}
+        
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	
+    	Robot.driveTrain.drive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
@@ -38,3 +49,4 @@ public class DriveStraight extends Command{
     protected void interrupted() {
     }
 }
+

@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.SPI;
 
 import org.usfirst.frc.team58.robot.RobotMap;
 import org.usfirst.frc.team58.robot.commands.Drive;
+
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class DriveTrain extends PIDSubsystem {
@@ -19,7 +22,7 @@ public class DriveTrain extends PIDSubsystem {
 	//T.Hansen - Declared encoders leftEnc and rightEnc
 	private static Encoder leftEnc;
 	private static Encoder rightEnc;
-	//private static AHRS navx = new AHRS(SPI.PortkMXP);
+	private static AHRS ahrs = new AHRS(SPI.Port.kMXP);
 	
 	Encoder rightEncoder;
 	
@@ -93,6 +96,14 @@ public class DriveTrain extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub
 		drive.arcadeDrive(output, getAngleCorrection());
+	}
+	
+	public double getAngle(){
+		return ahrs.getAngle();
+	}
+	
+	public void gyroReset(){
+		ahrs.reset();
 	}
 
 }
