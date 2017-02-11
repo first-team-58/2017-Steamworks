@@ -9,7 +9,7 @@ import org.usfirst.frc.team58.robot.commands.Drive;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class DriveTrain extends Subsystem {
-	private Talon leftFrontMotor, rightFrontMotor, leftRearMotor, rightRearMotor;
+	private Talon leftMotor, rightMotor;
 	public static Solenoid speedSolenoid = new Solenoid(0);
 	private RobotDrive drive;
 	//T.Hansen - Declared encoders leftEnc and rightEnc
@@ -25,9 +25,9 @@ public class DriveTrain extends Subsystem {
 	//Constructor
 	public DriveTrain(){
 		super();
-		leftFrontMotor = new Talon(RobotMap.leftFrontMotor);
-		rightFrontMotor = new Talon(RobotMap.rightFrontMotor);
-		drive = new RobotDrive(leftFrontMotor, rightFrontMotor);
+		leftMotor = new Talon(RobotMap.leftMotor);
+		rightMotor = new Talon(RobotMap.rightMotor);
+		drive = new RobotDrive(leftMotor, rightMotor);
 		//T.Hansen - Contructed encoders leftEnc and rightEnc
 		leftEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 		rightEnc = new Encoder(2, 3, false, Encoder.EncodingType.k4X);

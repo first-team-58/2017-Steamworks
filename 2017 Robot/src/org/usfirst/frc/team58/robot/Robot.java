@@ -223,4 +223,19 @@ public class Robot extends IterativeRobot {
 		double[] collectorSpeeds = {collectorBeltSpeed, collectorBrushSpeed};
 		return collectorSpeeds;
 	}
+	
+	/*
+	 * @return collectorBeltSpeed and CollectorBrushSpeed as a double array.
+	 */
+	public static double[] getCollectorSpeed(){
+		double[] collectorSpeeds = {collectorBeltSpeed, collectorBrushSpeed};
+		return collectorSpeeds;
+	}
+	/*
+	 * @return shooterPIDs as a double array.
+	 */
+	public static double[] getShooterPID(){
+		double[] shooterPID = {shooterP, shooterI, shooterD};
+		return shooterPID;
+	}
 }
