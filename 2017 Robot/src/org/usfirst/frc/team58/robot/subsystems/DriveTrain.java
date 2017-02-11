@@ -89,7 +89,7 @@ public class DriveTrain extends PIDSubsystem {
 
 	public double getAngleCorrection() {
 		//Change this to the navx code once it is imported.
-		return 0.0;
+		return -getAngle();
 	}
 	
 	@Override
