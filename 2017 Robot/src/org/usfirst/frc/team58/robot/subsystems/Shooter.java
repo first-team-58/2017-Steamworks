@@ -34,6 +34,7 @@ public class Shooter extends Subsystem{
 	
 	public void Shoot(double shootSpeed){
 		shooterMotor.changeControlMode(TalonControlMode.Speed);
+		shooterMotor.setF(shootSpeed);
 		shooterMotor.set(shootSpeed);
 	}
 	

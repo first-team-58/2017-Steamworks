@@ -15,6 +15,7 @@ public class DriveStraight extends Command{
     protected void initialize() {
     	double motorSpeed = Robot.getPopcornSpeed();
     	Robot.popcornMachine.runPopcornMotor(motorSpeed);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
