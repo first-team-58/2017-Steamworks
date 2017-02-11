@@ -59,6 +59,7 @@ public class Robot extends IterativeRobot {
 	public static double shooterP;
 	public static double shooterI;
 	public static double shooterD;
+	public static double rotateSpeed;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -177,6 +178,7 @@ public class Robot extends IterativeRobot {
 		shooterP = prefs.getDouble("Shooter P Value", 0.5);
 		shooterI = prefs.getDouble("Shooter I Value", 0.5);
 		shooterD = prefs.getDouble("Shooter D Value", 0.5);
+		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.2);
 	}
 	
 	/**
@@ -223,19 +225,15 @@ public class Robot extends IterativeRobot {
 		double[] collectorSpeeds = {collectorBeltSpeed, collectorBrushSpeed};
 		return collectorSpeeds;
 	}
-	
-	/*
-	 * @return collectorBeltSpeed and CollectorBrushSpeed as a double array.
-	 */
-	public static double[] getCollectorSpeed(){
-		double[] collectorSpeeds = {collectorBeltSpeed, collectorBrushSpeed};
-		return collectorSpeeds;
-	}
 	/*
 	 * @return shooterPIDs as a double array.
 	 */
 	public static double[] getShooterPID(){
 		double[] shooterPID = {shooterP, shooterI, shooterD};
 		return shooterPID;
+	}
+	
+	public static double getRotateSpeed(){
+		return rotateSpeed;
 	}
 }
