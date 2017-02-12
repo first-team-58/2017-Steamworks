@@ -45,11 +45,15 @@ public class DriveTrain extends PIDSubsystem {
 		}
 		
 		private int get() {
-			encCount.get();
+			return encCount.get();
 		}
 		
 		private void setDistancePerPulse(double distance) {
 			this.distance = distance;
+		}
+		
+		private void reset(){
+			encCount.reset();
 		}
 	}
 	

@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Rotate extends Command{
 	public double angle;
 	
-	public Rotate(double angleN) {
+	public Rotate(double angle) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		angle = angleN;
+		this.angle = angle;
     	requires(Robot.driveTrain);
     }
 
