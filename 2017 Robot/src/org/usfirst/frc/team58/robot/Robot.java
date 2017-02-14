@@ -19,6 +19,7 @@ import org.usfirst.frc.team58.robot.commands.ARightGearShoot;
 import org.usfirst.frc.team58.robot.commands.ARightHopperShoot;
 import org.usfirst.frc.team58.robot.commands.AShootLeft;
 import org.usfirst.frc.team58.robot.commands.AShootRight;
+import org.usfirst.frc.team58.robot.subsystems.AimingLight;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
 import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
@@ -41,6 +42,7 @@ public class Robot extends IterativeRobot {
 	public static Collector collector;
 	public static Shooter shooter;
 	public static PopcornMachine popcornMachine;
+	public static AimingLight aimingLight;
 
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
@@ -74,6 +76,7 @@ public class Robot extends IterativeRobot {
 		popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
 		collectorOn = false;
+		aimingLight = new AimingLight();
 		
 		//add auto chooser panel
 		addAutoChooser();

@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class DriveTrain extends PIDSubsystem {
 	public static Talon leftMotor;
 	public static Talon rightMotor;
-	public static Solenoid speedSolenoid = new Solenoid(0);
+	public static Solenoid speedSolenoid;
 	private RobotDrive drive;
 	//T.Hansen - Declared encoders leftEnc and rightEnc
 	private static Encoder58 leftEnc;
@@ -66,6 +66,7 @@ public class DriveTrain extends PIDSubsystem {
 		super("PID", 1.0, 1.0, 1.0);
 		leftMotor = new Talon(RobotMap.leftMotor);
 		rightMotor = new Talon(RobotMap.rightMotor);
+		speedSolenoid = new Solenoid(RobotMap.speedSolenoid);
 		drive = new RobotDrive(leftMotor, rightMotor);
 		//T.Hansen - Contructed encoders leftEnc and rightEnc
 		leftEnc = new Encoder58(0);

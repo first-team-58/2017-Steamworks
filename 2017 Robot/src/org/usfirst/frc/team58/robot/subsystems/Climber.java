@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Climber extends Subsystem {
 	private Talon climberMotor;
-	private static DigitalInput atTop;
+	//private static DigitalInput atTop;
 	//limit switch code
 	//Not done. Needs something.
 	
@@ -23,7 +23,7 @@ public class Climber extends Subsystem {
 	public Climber(){
 	climberMotor = new Talon(RobotMap.climberMotor);
 	
-	atTop = new DigitalInput(6);
+	//atTop = new DigitalInput(6);
 	}
 	
 	public void climb(double speed){
@@ -31,7 +31,7 @@ public class Climber extends Subsystem {
 	}
 	
 	public Boolean robotAtTop(){
-		return atTop.get();
+	//return atTop.get();
 	}
 	
 }
