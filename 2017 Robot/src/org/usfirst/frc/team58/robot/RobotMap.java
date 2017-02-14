@@ -16,6 +16,7 @@ public class RobotMap {
 	public static int brushMotor = 5;
 	public static int popcornMotor = 6;
 	public static int lightSpike = 7;
+	public static int shooterMotor = 9;
 	//Input ports
 	public static int leftEncoder = 0;
 	public static int rightEncoder = 1;

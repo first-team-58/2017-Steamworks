@@ -14,6 +14,7 @@ public class Climb extends Command{
 	 * climb up the rope at the end of the match. It also must TURN
 	 * OFF ALL OTHER SUBSYSTEMS BESIDES THE CLIMBER.*/
 	//Not done. Needs button pressed run the motor. Work in progress.
+	double maxClimberCurrent;
 	
 	public Climb() {
         // Use requires() here to declare subsystem dependencies
@@ -28,16 +29,16 @@ public class Climb extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//Not sure where this is supposed to be.
-    	//Robot.oi.climberButton.whileHeld(setDefaultCommand(new Drive());());
+    	maxClimberCurrent = Robot.getMaxClimberCurrent();
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean atTop = Robot.climber.robotAtTop();
+  
     	double motorSpeed = Robot.getClimberSpeed();
-    	if (atTop = false){
+    	double motorCurrent = Robot.getClimberCurrent();
+    	if (motorCurrent < maxClimberCurrent){
     		Robot.climber.climb(motorSpeed);
     		
     	} else {

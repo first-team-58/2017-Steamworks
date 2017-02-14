@@ -62,6 +62,7 @@ public class Robot extends IterativeRobot {
 	public static double shooterI;
 	public static double shooterD;
 	public static double rotateSpeed;
+	public static double maxClimberCurrent;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -154,7 +155,8 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(3));
+		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(RobotMap.shooterMotor));
+		SmartDashboard.putNumber("Climber Current", pdp.getCurrent(RobotMap.climberMotor));
 		SmartDashboard.putBoolean("Collector On", collectorOn);
 		SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
 	}
@@ -182,6 +184,7 @@ public class Robot extends IterativeRobot {
 		shooterI = prefs.getDouble("Shooter I Value", 0.5);
 		shooterD = prefs.getDouble("Shooter D Value", 0.5);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.2);
+		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 1);
 	}
 	
 	/**
@@ -238,5 +241,13 @@ public class Robot extends IterativeRobot {
 	
 	public static double getRotateSpeed(){
 		return rotateSpeed;
+	}
+	
+	public static double getClimberCurrent(){
+		return pdp.getCurrent(RobotMap.climberMotor);
+	}
+	
+	public static double getMaxClimberCurrent(){
+		return maxClimberCurrent;
 	}
 }

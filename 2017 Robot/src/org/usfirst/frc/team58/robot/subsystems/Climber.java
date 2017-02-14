@@ -30,8 +30,4 @@ public class Climber extends Subsystem {
 		climberMotor.setSpeed(speed);
 	}
 	
-	public Boolean robotAtTop(){
-	//return atTop.get();
-	}
-	
 }
