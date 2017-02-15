@@ -61,6 +61,9 @@ public class Robot extends IterativeRobot {
 	public static double shooterP;
 	public static double shooterI;
 	public static double shooterD;
+	public static double driverP;
+	public static double driverI;
+	public static double driverD;
 	public static double rotateSpeed;
 	public static double maxClimberCurrent;
 	
@@ -70,7 +73,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		driveTrain = new DriveTrain();
+		//add preferences panel.
+				addPreferences();
+				
+		driveTrain = new DriveTrain(driverP, driverI, driverD);
 		climber = new Climber();
 		oi = new OI();
 		shooter = new Shooter();
@@ -81,9 +87,6 @@ public class Robot extends IterativeRobot {
 		
 		//add auto chooser panel
 		addAutoChooser();
-		
-		//add preferences panel.
-		addPreferences();
 		
 		
 	}
@@ -183,6 +186,9 @@ public class Robot extends IterativeRobot {
 		shooterP = prefs.getDouble("Shooter P Value", 0.5);
 		shooterI = prefs.getDouble("Shooter I Value", 0.5);
 		shooterD = prefs.getDouble("Shooter D Value", 0.5);
+		driverP = prefs.getDouble("Driver P Value", 0.5);
+		driverI = prefs.getDouble("Driver I Value", 0.5);
+		driverD = prefs.getDouble("Driver D Value", 0.5);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.2);
 		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 1);
 	}

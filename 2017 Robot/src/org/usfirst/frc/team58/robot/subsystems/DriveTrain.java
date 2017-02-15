@@ -62,8 +62,8 @@ public class DriveTrain extends PIDSubsystem {
 	}
 	
 	//Constructor
-	public DriveTrain(){
-		super("PID", 1.0, 1.0, 1.0);
+	public DriveTrain(double P, double I, double D){
+		super("PID", P, I, D);
 		leftMotor = new Talon(RobotMap.leftMotor);
 		rightMotor = new Talon(RobotMap.rightMotor);
 		speedSolenoid = new Solenoid(RobotMap.speedSolenoid);

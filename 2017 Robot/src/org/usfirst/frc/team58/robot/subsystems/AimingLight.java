@@ -19,7 +19,7 @@ public class AimingLight extends Subsystem {
 		
 		public void shineLight(Boolean input){
 			
-			if(input = true){
+			if(input == true){
 				lightSpike.set(Relay.Value.kOn);
 			} else{
 				lightSpike.set(Relay.Value.kOff);
