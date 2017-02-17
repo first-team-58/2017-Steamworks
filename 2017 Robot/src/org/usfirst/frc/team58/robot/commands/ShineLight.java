@@ -10,7 +10,7 @@ public class ShineLight extends Command{
 	public ShineLight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.aimingLight);
+    	//requires(Robot.aimingLight);
     }
 
     // Called just before this Command runs the first time
@@ -23,9 +23,9 @@ public class ShineLight extends Command{
     	double triggerValue = Robot.oi.joy.getRawAxis(RobotMap.triggerAxis);
     	
     	if(triggerValue <= -.75){
-    	Robot.aimingLight.shineLight(true);
+    	//Robot.aimingLight.shineLight(true);
     	} else{
-    	Robot.aimingLight.shineLight(false);	
+    	//Robot.aimingLight.shineLight(false);	
     	}
     }
 
@@ -36,7 +36,7 @@ public class ShineLight extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.aimingLight.shineLight(false);
+    	//Robot.aimingLight.shineLight(false);
     }
 
     // Called when another command which requires one or more of the same

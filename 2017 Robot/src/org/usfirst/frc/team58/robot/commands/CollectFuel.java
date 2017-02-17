@@ -18,7 +18,7 @@ public class CollectFuel extends Command{
 	public CollectFuel() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.collector);
+    	//requires(Robot.collector);
    
     }
 
@@ -34,9 +34,9 @@ public class CollectFuel extends Command{
     double[] stoppedSpeeds = {0,0};
     double moveValue = Robot.oi.joy.getRawAxis(RobotMap.moveAxis);
     	if (moveValue > 0.05){
-    		Robot.collector.collectFuel(motorSpeeds);
+    		//Robot.collector.collectFuel(motorSpeeds);
     	}else{
-    		Robot.collector.collectFuel(stoppedSpeeds);
+    		//Robot.collector.collectFuel(stoppedSpeeds);
     	}
     
     		
@@ -51,7 +51,7 @@ public class CollectFuel extends Command{
     protected void end() {
     Robot.collectorOn = false;
     double[] stoppedSpeeds = {0,0};
-    Robot.collector.collectFuel(stoppedSpeeds);
+    //Robot.collector.collectFuel(stoppedSpeeds);
     }
 
     // Called when another command which requires one or more of the same

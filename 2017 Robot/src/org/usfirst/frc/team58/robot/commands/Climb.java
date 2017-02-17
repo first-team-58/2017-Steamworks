@@ -21,9 +21,9 @@ public class Climb extends Command{
         // eg. requires(chassis);
     	requires(Robot.climber);
     	requires(Robot.driveTrain);
-    	requires(Robot.collector);
-    	requires(Robot.popcornMachine);
-    	requires(Robot.shooter);
+    	//requires(Robot.collector);
+    	//requires(Robot.popcornMachine);
+    	//requires(Robot.shooter);
   
     }
 
@@ -32,11 +32,11 @@ public class Climb extends Command{
     	maxClimberCurrent = Robot.getMaxClimberCurrent();
     	
     	//T.Hansen - Turns off all other subsystems
-    	double[] collectorOff = {0.0,0.0};
-    	Robot.collector.collectFuel(collectorOff);
+    	//double[] collectorOff = {0.0,0.0};
+    	//Robot.collector.collectFuel(collectorOff);
     	//Robot.popcornMachine.runPopcornMotor(0.0);
     	Robot.driveTrain.drive(0, 0);
-    	Robot.shooter.Shoot(0);
+    	//Robot.shooter.Shoot(0);
     }
 
     // Called repeatedly when this Command is scheduled to run

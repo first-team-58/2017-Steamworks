@@ -15,13 +15,13 @@ public class FeedFuel extends Command{
 	public FeedFuel() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.popcornMachine);
+    	//requires(Robot.popcornMachine);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	double motorSpeed = Robot.getPopcornSpeed();
-    	Robot.popcornMachine.runPopcornMotor(motorSpeed);
+    	//Robot.popcornMachine.runPopcornMotor(motorSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -37,7 +37,7 @@ public class FeedFuel extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.popcornMachine.runPopcornMotor(0);
+    	//Robot.popcornMachine.runPopcornMotor(0);
     }
 
     // Called when another command which requires one or more of the same

@@ -13,13 +13,13 @@ public class SpinUp extends Command{
 	public SpinUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.shooter);
+    	//requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	double shootSpeed = Robot.getShooterSpeed();
-    	Robot.shooter.Shoot(shootSpeed);
+    	//Robot.shooter.Shoot(shootSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -34,7 +34,7 @@ public class SpinUp extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooter.Shoot(0);
+    	//Robot.shooter.Shoot(0);
     }
 
     // Called when another command which requires one or more of the same

@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team58.robot.commands.ALeftGear;
+//import org.usfirst.frc.team58.robot.commands.ALeftGear;
 import org.usfirst.frc.team58.robot.commands.ALeftGearShoot;
 import org.usfirst.frc.team58.robot.commands.ALeftHopperShoot;
-import org.usfirst.frc.team58.robot.commands.AMiddleGear;
-import org.usfirst.frc.team58.robot.commands.ARightGear;
-import org.usfirst.frc.team58.robot.commands.ARightGearShoot;
+//import org.usfirst.frc.team58.robot.commands.AMiddleGear;
+//import org.usfirst.frc.team58.robot.commands.ARightGear;
+//import org.usfirst.frc.team58.robot.commands.ARightGearShoot;
 import org.usfirst.frc.team58.robot.commands.ARightHopperShoot;
 import org.usfirst.frc.team58.robot.commands.AShootLeft;
 import org.usfirst.frc.team58.robot.commands.AShootRight;
@@ -39,10 +39,10 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static Climber climber;
 	public static OI oi;
-	public static Collector collector;
-	public static Shooter shooter;
-	public static PopcornMachine popcornMachine;
-	public static AimingLight aimingLight;
+	//public static Collector collector;
+	//public static Shooter shooter;
+	//public static PopcornMachine popcornMachine;
+	//public static AimingLight aimingLight;
 
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
@@ -76,18 +76,18 @@ public class Robot extends IterativeRobot {
 		//add preferences panel.
 				addPreferences();
 				
-		driveTrain = new DriveTrain(driverP, driverI, driverD);
+		driveTrain = new DriveTrain();
 		climber = new Climber();
-		shooter = new Shooter();
-		collector = new Collector();
-		popcornMachine = new PopcornMachine();
+		//shooter = new Shooter();
+		//collector = new Collector();
+		//popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
 		collectorOn = false;
-		aimingLight = new AimingLight();
+		//aimingLight = new AimingLight();
 		oi = new OI();
 		
 		//add auto chooser panel
-		addAutoChooser();
+		//addAutoChooser();
 		
 		
 	}
@@ -159,7 +159,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(RobotMap.shooterMotor));
+		//SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(RobotMap.shooterMotor));
 		SmartDashboard.putNumber("Climber Current", pdp.getCurrent(RobotMap.climberMotor));
 		SmartDashboard.putBoolean("Collector On", collectorOn);
 		//SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
@@ -197,21 +197,21 @@ public class Robot extends IterativeRobot {
 	/**
 	 * Run in robot init, sets up autoChooser panel in smartdashboard.
 	 */
-	public void addAutoChooser(){
-		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
-		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
-		autoChooser.addObject("Left Gear", new ALeftGear());
-		autoChooser.addObject("Right Gear", new ARightGear());
-		autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
-		autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
-		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
-		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
-		autoChooser.addObject("Shoot to the Left", new AShootLeft());
-		autoChooser.addObject("Shoot to the Right", new AShootRight());
-		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
-		autonomousCommand = autoChooser.getSelected();
-	}
+//	public void addAutoChooser(){
+//		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
+//		autoChooser = new SendableChooser();
+//		//autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
+//		//autoChooser.addObject("Left Gear", new ALeftGear());
+//		//autoChooser.addObject("Right Gear", new ARightGear());
+//		//autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
+//		//autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
+//		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
+//		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
+//		autoChooser.addObject("Shoot to the Left", new AShootLeft());
+//		autoChooser.addObject("Shoot to the Right", new AShootRight());
+//		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+//		autonomousCommand = autoChooser.getSelected();
+//	}
 	/**
 	 * To be fixed, static references and non-static field.
 	 * @return climberSpeed from prefs.
