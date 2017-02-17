@@ -29,7 +29,7 @@ public class Shooter extends Subsystem{
 		double[] shooterPID = Robot.getShooterPID();
 		shooterMotor.setP(shooterPID[0]);
 		shooterMotor.setI(shooterPID[1]);
-		shooterMotor.setD(shooterPID[3]);
+		shooterMotor.setD(shooterPID[2]);
 	}
 	
 	public void Shoot(double shootSpeed){

@@ -31,10 +31,10 @@ public class Climb extends Command{
     protected void initialize() {
     	maxClimberCurrent = Robot.getMaxClimberCurrent();
     	
-    	//T.Hansen - Turns off all other subystems
+    	//T.Hansen - Turns off all other subsystems
     	double[] collectorOff = {0.0,0.0};
     	Robot.collector.collectFuel(collectorOff);
-    	Robot.popcornMachine.runPopcornMotor(0);
+    	//Robot.popcornMachine.runPopcornMotor(0.0);
     	Robot.driveTrain.drive(0, 0);
     	Robot.shooter.Shoot(0);
     }

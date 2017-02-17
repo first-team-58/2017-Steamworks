@@ -78,12 +78,13 @@ public class Robot extends IterativeRobot {
 				
 		driveTrain = new DriveTrain(driverP, driverI, driverD);
 		climber = new Climber();
-		oi = new OI();
 		shooter = new Shooter();
+		collector = new Collector();
 		popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
 		collectorOn = false;
 		aimingLight = new AimingLight();
+		oi = new OI();
 		
 		//add auto chooser panel
 		addAutoChooser();
@@ -161,7 +162,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(RobotMap.shooterMotor));
 		SmartDashboard.putNumber("Climber Current", pdp.getCurrent(RobotMap.climberMotor));
 		SmartDashboard.putBoolean("Collector On", collectorOn);
-		SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
+		//SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
 	}
 
 	/**
