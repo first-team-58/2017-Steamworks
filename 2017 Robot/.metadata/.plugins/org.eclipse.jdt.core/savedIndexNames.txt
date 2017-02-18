@@ -1,0 +1,2 @@
+INDEX VERSION 1.129+C:\Users\RoboticsAcer\Documents\2017-Steamworks\2017 Robot\.metadata\.plugins\org.eclipse.jdt.core
+2815625004.index
