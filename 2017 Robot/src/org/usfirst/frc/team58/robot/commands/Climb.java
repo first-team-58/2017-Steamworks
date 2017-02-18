@@ -1,11 +1,7 @@
 package org.usfirst.frc.team58.robot.commands;
 
-import org.usfirst.frc.team58.robot.OI;
+import org.usfirst.frc.team58.robot.Dashboard;
 import org.usfirst.frc.team58.robot.Robot;
-import org.usfirst.frc.team58.robot.RobotMap;
-import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
-
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Climb extends Command{
@@ -15,6 +11,7 @@ public class Climb extends Command{
 	 * OFF ALL OTHER SUBSYSTEMS BESIDES THE CLIMBER.*/
 	//Not done. Needs button pressed run the motor. Work in progress.
 	double maxClimberCurrent;
+	double climberSpeed;
 	
 	public Climb() {
         // Use requires() here to declare subsystem dependencies
@@ -29,7 +26,8 @@ public class Climb extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	maxClimberCurrent = Robot.getMaxClimberCurrent();
+    	maxClimberCurrent = Dashboard.getMaxClimberCurrent();
+    	climberSpeed = Dashboard.getClimberSpeed();
     	
     	//T.Hansen - Turns off all other subsystems
     	double[] collectorOff = {0.0,0.0};
@@ -42,14 +40,12 @@ public class Climb extends Command{
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
   
-    	double motorSpeed = Robot.getClimberSpeed();
     	double motorCurrent = Robot.getClimberCurrent();
     	if (motorCurrent < maxClimberCurrent){
-    		Robot.climber.climb(motorSpeed);
+    		Robot.climber.climb(climberSpeed);
     		
     	} else {
     		Robot.climber.climb(0);
-    		isFinished();
     	}
     	
     }
@@ -66,6 +62,7 @@ public class Climb extends Command{
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.climber.climb(0);
     }
 }
 

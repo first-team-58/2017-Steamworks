@@ -43,29 +43,7 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	public static PopcornMachine popcornMachine;
 	public static AimingLight aimingLight;
-
-	Command autonomousCommand;
-	SendableChooser<Command> autoChooser;
 	public static PowerDistributionPanel pdp;
-	public static Boolean collectorOn;
-	public static Preferences prefs;
-	
-	//These are the preferences variables.
-	public static double climberSpeed;
-	public static double collectorBrushSpeed;
-	public static double collectorBeltSpeed;
-	public static double shooterSpeed;
-	public static double popcornSpeed;
-	public static double nearShootDistance;
-	public static double farShootDistance;
-	public static double shooterP;
-	public static double shooterI;
-	public static double shooterD;
-	public static double driverP;
-	public static double driverI;
-	public static double driverD;
-	public static double rotateSpeed;
-	public static double maxClimberCurrent;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -73,23 +51,19 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		//add preferences panel.
-				addPreferences();
-				
-		driveTrain = new DriveTrain(driverP, driverI, driverD);
+		Dashboard.initDashboard();
+		
+		double[] driverPID = Dashboard.getDriverPID();
+		driveTrain = new DriveTrain(driverPID[0], driverPID[1], driverPID[2]);
+		
 		climber = new Climber();
 		shooter = new Shooter();
 		collector = new Collector();
 		popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
-		collectorOn = false;
 		aimingLight = new AimingLight();
 		oi = new OI();
-		
-		//add auto chooser panel
-		addAutoChooser();
-		
-		
+			
 	}
 
 	/**
@@ -172,89 +146,9 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
-	/**
-	 * Run in robot init, sets up preferences panel in smartdashboard.
-	 */
-	public void addPreferences(){
-		prefs = Preferences.getInstance();
-		climberSpeed = prefs.getDouble("Climber Motor Speed", 0.5);
-		shooterSpeed = prefs.getDouble("Shooter Motor Speed", 0.5);
-		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 0.5);
-		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", 0.5);
-		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 0.5);
-		nearShootDistance = prefs.getDouble("Near Shoot Distance", 0.5);
-		farShootDistance = prefs.getDouble("Far Shoot Distance", 0.5);
-		shooterP = prefs.getDouble("Shooter P Value", 0.5);
-		shooterI = prefs.getDouble("Shooter I Value", 0.5);
-		shooterD = prefs.getDouble("Shooter D Value", 0.5);
-		driverP = prefs.getDouble("Driver P Value", 0.5);
-		driverI = prefs.getDouble("Driver I Value", 0.5);
-		driverD = prefs.getDouble("Driver D Value", 0.5);
-		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.2);
-		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 1);
-	}
-	
-	/**
-	 * Run in robot init, sets up autoChooser panel in smartdashboard.
-	 */
-	public void addAutoChooser(){
-		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
-		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
-		autoChooser.addObject("Left Gear", new ALeftGear());
-		autoChooser.addObject("Right Gear", new ARightGear());
-		autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
-		autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
-		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
-		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
-		autoChooser.addObject("Shoot to the Left", new AShootLeft());
-		autoChooser.addObject("Shoot to the Right", new AShootRight());
-		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
-		autonomousCommand = autoChooser.getSelected();
-	}
-	/**
-	 * To be fixed, static references and non-static field.
-	 * @return climberSpeed from prefs.
-	 */
-	public static double getClimberSpeed(){
-		return climberSpeed;
-	}
-	/*
-	 * @return popcornSpeed from prefs.
-	 */
-	public static double getPopcornSpeed(){
-		return popcornSpeed;
-	}
-	/*
-	 * @return shooterSpeed.
-	 */
-	public static double getShooterSpeed(){
-		return shooterSpeed;
-	}
-	/*
-	 * @return collectorBeltSpeed and CollectorBrushSpeed as a double array.
-	 */
-	public static double[] getCollectorSpeed(){
-		double[] collectorSpeeds = {collectorBeltSpeed, collectorBrushSpeed};
-		return collectorSpeeds;
-	}
-	/*
-	 * @return shooterPIDs as a double array.
-	 */
-	public static double[] getShooterPID(){
-		double[] shooterPID = {shooterP, shooterI, shooterD};
-		return shooterPID;
-	}
-	
-	public static double getRotateSpeed(){
-		return rotateSpeed;
-	}
 	
 	public static double getClimberCurrent(){
 		return pdp.getCurrent(RobotMap.climberMotor);
 	}
-	
-	public static double getMaxClimberCurrent(){
-		return maxClimberCurrent;
-	}
+
 }

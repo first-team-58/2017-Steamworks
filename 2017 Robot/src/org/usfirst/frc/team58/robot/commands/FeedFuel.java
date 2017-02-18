@@ -1,7 +1,7 @@
 package org.usfirst.frc.team58.robot.commands;
 
+import org.usfirst.frc.team58.robot.Dashboard;
 import org.usfirst.frc.team58.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class FeedFuel extends Command{
@@ -12,6 +12,8 @@ public class FeedFuel extends Command{
 	 * tells the robot to run the motor to feed fuel through the popcorn
 	 * machine into the shooter for launching fuel into the high boiler. */
 	
+	double motorSpeed;
+	
 	public FeedFuel() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -20,13 +22,13 @@ public class FeedFuel extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	double motorSpeed = Robot.getPopcornSpeed();
+    	motorSpeed = Dashboard.getPopcornSpeed();
     	Robot.popcornMachine.runPopcornMotor(motorSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	Robot.popcornMachine.runPopcornMotor(motorSpeed);
     	
     }
 
@@ -37,12 +39,13 @@ public class FeedFuel extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.popcornMachine.runPopcornMotor(0);
+    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.popcornMachine.runPopcornMotor(0);
     }
 }
 

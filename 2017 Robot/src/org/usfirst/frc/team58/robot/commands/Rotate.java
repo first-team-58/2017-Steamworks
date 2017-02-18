@@ -1,17 +1,20 @@
 package org.usfirst.frc.team58.robot.commands;
 
+import org.usfirst.frc.team58.robot.Dashboard;
 import org.usfirst.frc.team58.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Rotate extends Command{
 	public double angle;
+	double rotateSpeed;
 	
 	public Rotate(double angle) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		this.angle = angle;
     	requires(Robot.driveTrain);
+    	rotateSpeed = Dashboard.getRotateSpeed();
     }
 
     // Called just before this Command runs the first time
@@ -22,9 +25,9 @@ public class Rotate extends Command{
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(angle < -0.5){
-    		Robot.driveTrain.drive(0, -Robot.getRotateSpeed());
+    		Robot.driveTrain.drive(0, -rotateSpeed);
     	} else if(angle > 0.5){
-    		Robot.driveTrain.drive(0, Robot.getRotateSpeed());
+    		Robot.driveTrain.drive(0, rotateSpeed);
     	}
     	
     }

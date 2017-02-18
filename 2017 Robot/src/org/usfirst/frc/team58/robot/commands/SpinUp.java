@@ -1,7 +1,7 @@
 package org.usfirst.frc.team58.robot.commands;
 
+import org.usfirst.frc.team58.robot.Dashboard;
 import org.usfirst.frc.team58.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SpinUp extends Command{
@@ -9,6 +9,8 @@ public class SpinUp extends Command{
 	/* T. Hansen 02.08.2017 - This is the SpinUp command, which tells
 	 * the robot to run the motors which spin the shooter wheels to prep
 	 * for launching fuel into the high boiler. */
+	
+	double shootSpeed;
 	
 	public SpinUp() {
         // Use requires() here to declare subsystem dependencies
@@ -18,7 +20,7 @@ public class SpinUp extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	double shootSpeed = Robot.getShooterSpeed();
+    	shootSpeed = Dashboard.getShooterSpeed();
     	Robot.shooter.Shoot(shootSpeed);
     }
 
@@ -40,6 +42,7 @@ public class SpinUp extends Command{
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.shooter.Shoot(0);
     }
 }
 
