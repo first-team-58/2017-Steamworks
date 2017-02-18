@@ -3,22 +3,11 @@ package org.usfirst.frc.team58.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team58.robot.commands.ALeftGear;
-import org.usfirst.frc.team58.robot.commands.ALeftGearShoot;
-import org.usfirst.frc.team58.robot.commands.ALeftHopperShoot;
-import org.usfirst.frc.team58.robot.commands.AMiddleGear;
-import org.usfirst.frc.team58.robot.commands.ARightGear;
-import org.usfirst.frc.team58.robot.commands.ARightGearShoot;
-import org.usfirst.frc.team58.robot.commands.ARightHopperShoot;
-import org.usfirst.frc.team58.robot.commands.AShootLeft;
-import org.usfirst.frc.team58.robot.commands.AShootRight;
 import org.usfirst.frc.team58.robot.subsystems.AimingLight;
 import org.usfirst.frc.team58.robot.subsystems.Cameras;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
@@ -47,13 +36,14 @@ public class Robot extends IterativeRobot {
 	public static PowerDistributionPanel pdp;
 	public static Cameras cameras;
 	
+	Command autonomousCommand;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
-		Dashboard.initDashboard();
 		
 		double[] driverPID = Dashboard.getDriverPID();
 		driveTrain = new DriveTrain(driverPID[0], driverPID[1], driverPID[2]);
@@ -64,8 +54,12 @@ public class Robot extends IterativeRobot {
 		popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
 		aimingLight = new AimingLight();
-		cameras = new Cameras();
+		//cameras = new Cameras();
 		oi = new OI();
+		
+		Dashboard.initDashboard();
+		
+		autonomousCommand = Dashboard.getAutoProgram();
 			
 	}
 
@@ -125,6 +119,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 	}
@@ -138,7 +133,7 @@ public class Robot extends IterativeRobot {
 		
 		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(RobotMap.shooterMotor));
 		SmartDashboard.putNumber("Climber Current", pdp.getCurrent(RobotMap.climberMotor));
-		SmartDashboard.putBoolean("Collector On", collectorOn);
+		//SmartDashboard.putBoolean("Collector On", collectorOn);
 		//SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
 	}
 

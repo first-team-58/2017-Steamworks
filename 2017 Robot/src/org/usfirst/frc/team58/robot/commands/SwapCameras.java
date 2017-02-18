@@ -9,12 +9,12 @@ import org.usfirst.frc.team58.robot.Robot;
 public class SwapCameras extends Command {
 
     public SwapCameras() {
-        requires(Robot.cameras);
+        //requires(Robot.cameras);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.cameras.swapCameras();
+    	//Robot.cameras.swapCameras();
     }
 
     // Called repeatedly when this Command is scheduled to run

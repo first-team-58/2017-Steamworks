@@ -140,7 +140,7 @@ public class Dashboard {
 	/*
 	 * @return auto drive rotation speed.
 	 */ 
-	static double getRotateSpeed(){
+	public static double getRotateSpeed(){
 		return rotateSpeed;
 	}
 	

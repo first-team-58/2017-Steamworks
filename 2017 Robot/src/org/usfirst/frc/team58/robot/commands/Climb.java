@@ -17,7 +17,7 @@ public class Climb extends Command{
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.climber);
-    	requires(Robot.driveTrain);
+    	//requires(Robot.driveTrain);
     	requires(Robot.collector);
     	requires(Robot.popcornMachine);
     	requires(Robot.shooter);
@@ -33,7 +33,7 @@ public class Climb extends Command{
     	double[] collectorOff = {0.0,0.0};
     	Robot.collector.collectFuel(collectorOff);
     	//Robot.popcornMachine.runPopcornMotor(0.0);
-    	Robot.driveTrain.drive(0, 0);
+    	//Robot.driveTrain.drive(0, 0);
     	Robot.shooter.Shoot(0);
     }
 
