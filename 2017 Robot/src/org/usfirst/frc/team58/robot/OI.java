@@ -39,6 +39,8 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+
 	public Joystick joy = new Joystick(0);
 	public Joystick oper = new Joystick(1);
 
@@ -54,8 +56,8 @@ public class OI {
 		// T.Hansen 02.08.2017 - For some reason, it doesn't like this.
 		climberButton.whileHeld(new Climb());
 		shootButton.whileHeld(new FeedFuel());
-		collectButton.toggleWhenPressed(new CollectFuel());
-		spinUpButton.whenPressed(new SpinUp());
+		collectButton.whileHeld(new CollectFuel());
+		spinUpButton.whileHeld(new SpinUp());
 		cameraSwapButton.whenPressed(new SwapCameras());
 
 		// T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem

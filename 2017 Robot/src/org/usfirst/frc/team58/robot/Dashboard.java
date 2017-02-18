@@ -18,8 +18,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard {
 	
-	Command autonomousCommand;
-	SendableChooser<Command> autoChooser;
+	static Command autonomousCommand;
+	static SendableChooser<Command> autoChooser;
 	public static Boolean collectorOn;
 	public static Preferences prefs;
 	
@@ -41,13 +41,15 @@ public class Dashboard {
 	public static double maxClimberCurrent;
 	
 	public static void initDashboard() {
+		addPreferences();
+		addAutoChooser();
 		
 	}
 	
 	/**
-	 * Run in robot init, sets up preferences panel in smartdashboard.
+	 * Run in dashboard init, sets up preferences panel in smartdashboard.
 	 */
-	public void addPreferences(){
+	public static void addPreferences(){
 		prefs = Preferences.getInstance();
 		climberSpeed = prefs.getDouble("Climber Motor Speed", 0.5);
 		shooterSpeed = prefs.getDouble("Shooter Motor Speed", 0.5);
@@ -67,11 +69,11 @@ public class Dashboard {
 	}
 	
 	/**
-	 * Run in robot init, sets up autoChooser panel in smartdashboard.
+	 * Run in dashboard init, sets up autoChooser panel in smartdashboard.
 	 */
-	public void addAutoChooser(){
+	public static void addAutoChooser(){
 		//T.Hansen 02.04.2017 - Choose auto at beginning of match from SmartDashboard
-		autoChooser = new SendableChooser();
+		autoChooser = new SendableChooser<Command>();
 		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
 		autoChooser.addObject("Left Gear", new ALeftGear());
 		autoChooser.addObject("Right Gear", new ARightGear());
@@ -82,10 +84,19 @@ public class Dashboard {
 		autoChooser.addObject("Shoot to the Left", new AShootLeft());
 		autoChooser.addObject("Shoot to the Right", new AShootRight());
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
-		autonomousCommand = autoChooser.getSelected();
+		
 	}
+	
 	/**
-	 * To be fixed, static references and non-static field.
+	 * @return chosen Auto command from autoChooser
+	 */
+	public static Command getAutoProgram() {
+		autonomousCommand = autoChooser.getSelected();
+		return autonomousCommand;
+	}
+	
+	/**
+	 * 
 	 * @return climberSpeed from prefs.
 	 */
 	public static double getClimberSpeed(){
@@ -126,11 +137,16 @@ public class Dashboard {
 		return driverPID;
 	}
 	
-	
-	public static double getRotateSpeed(){
+	/*
+	 * @return auto drive rotation speed.
+	 */ 
+	static double getRotateSpeed(){
 		return rotateSpeed;
 	}
 	
+	/*
+	 * @return maximum climber current.
+	 */
 	public static double getMaxClimberCurrent(){
 		return maxClimberCurrent;
 	}
