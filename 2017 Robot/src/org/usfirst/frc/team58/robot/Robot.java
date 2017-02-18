@@ -20,6 +20,7 @@ import org.usfirst.frc.team58.robot.commands.ARightHopperShoot;
 import org.usfirst.frc.team58.robot.commands.AShootLeft;
 import org.usfirst.frc.team58.robot.commands.AShootRight;
 import org.usfirst.frc.team58.robot.subsystems.AimingLight;
+import org.usfirst.frc.team58.robot.subsystems.Cameras;
 import org.usfirst.frc.team58.robot.subsystems.Climber;
 import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
@@ -44,6 +45,7 @@ public class Robot extends IterativeRobot {
 	public static PopcornMachine popcornMachine;
 	public static AimingLight aimingLight;
 	public static PowerDistributionPanel pdp;
+	public static Cameras cameras;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -62,6 +64,7 @@ public class Robot extends IterativeRobot {
 		popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
 		aimingLight = new AimingLight();
+		cameras = new Cameras();
 		oi = new OI();
 			
 	}
