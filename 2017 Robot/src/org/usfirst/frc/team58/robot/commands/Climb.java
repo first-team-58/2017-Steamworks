@@ -15,6 +15,7 @@ public class Climb extends Command{
 	 * OFF ALL OTHER SUBSYSTEMS BESIDES THE CLIMBER.*/
 	//Not done. Needs button pressed run the motor. Work in progress.
 	double maxClimberCurrent;
+
 	
 	public Climb() {
         // Use requires() here to declare subsystem dependencies
@@ -24,7 +25,7 @@ public class Climb extends Command{
     	//requires(Robot.collector);
     	//requires(Robot.popcornMachine);
     	//requires(Robot.shooter);
-  
+
     }
 
     // Called just before this Command runs the first time
@@ -37,20 +38,30 @@ public class Climb extends Command{
     	//Robot.popcornMachine.runPopcornMotor(0.0);
     	Robot.driveTrain.drive(0, 0);
     	//Robot.shooter.Shoot(0);
+    	
+
+		double motorSpeed = Robot.getClimberSpeed();
+    	Robot.climber.climb(motorSpeed);
+    		
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
   
-    	double motorSpeed = Robot.getClimberSpeed();
-    	double motorCurrent = Robot.getClimberCurrent();
-    	if (motorCurrent < maxClimberCurrent){
-    		Robot.climber.climb(motorSpeed);
+
+		double motorSpeed = Robot.getClimberSpeed();
+    	Robot.climber.climb(motorSpeed);
     		
-    	} else {
-    		Robot.climber.climb(0);
-    		isFinished();
-    	}
+
+    	//double motorCurrent = Robot.getClimberCurrent();
+    	//if (motorCurrent < maxClimberCurrent){
+    		//Robot.climber.climb(motorSpeed);
+    		
+    	//} else {
+    		//Robot.climber.climb(0);
+    		//isFinished();
+    	//}
     	
     }
 
@@ -61,11 +72,13 @@ public class Climb extends Command{
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.climber.climb(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.climber.climb(0);
     }
 }
 

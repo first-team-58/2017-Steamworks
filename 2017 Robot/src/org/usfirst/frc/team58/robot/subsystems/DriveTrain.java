@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 public class DriveTrain extends Subsystem {
 	private Talon leftMotor, rightMotor;
-	public static Solenoid speedSolenoid = new Solenoid(0);
+	public static Solenoid speedSolenoid = new Solenoid(RobotMap.speedSolenoid);
 	private RobotDrive drive;
 	//T.Hansen - Declared encoders leftEnc and rightEnc
 	//private Encoder leftEnc;

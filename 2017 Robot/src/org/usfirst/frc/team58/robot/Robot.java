@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team58.robot;
 
+
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Preferences;
@@ -25,6 +27,7 @@ import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team58.robot.subsystems.PopcornMachine;
 import org.usfirst.frc.team58.robot.subsystems.Shooter;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -67,6 +70,8 @@ public class Robot extends IterativeRobot {
 	public static double rotateSpeed;
 	public static double maxClimberCurrent;
 	
+
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -74,7 +79,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		//add preferences panel.
-				addPreferences();
+		addPreferences();
 				
 		driveTrain = new DriveTrain();
 		climber = new Climber();
@@ -91,6 +96,8 @@ public class Robot extends IterativeRobot {
 		
 		
 	}
+	
+
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -160,7 +167,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		
 		//SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(RobotMap.shooterMotor));
-		SmartDashboard.putNumber("Climber Current", pdp.getCurrent(RobotMap.climberMotor));
+		//SmartDashboard.putNumber("Climber Current", pdp.getCurrent(RobotMap.climberMotor));
 		SmartDashboard.putBoolean("Collector On", collectorOn);
 		//SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
 	}
