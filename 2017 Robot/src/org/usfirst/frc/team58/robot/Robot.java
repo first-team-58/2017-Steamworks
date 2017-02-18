@@ -3,6 +3,7 @@ package org.usfirst.frc.team58.robot;
 
 
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Preferences;
@@ -27,7 +28,7 @@ import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team58.robot.subsystems.PopcornMachine;
 import org.usfirst.frc.team58.robot.subsystems.Shooter;
-
+import org.usfirst.frc.team58.robot.subsystems.Cameras;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -42,6 +43,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	public static Climber climber;
 	public static OI oi;
+	public static Cameras cameras;
 	//public static Collector collector;
 	//public static Shooter shooter;
 	//public static PopcornMachine popcornMachine;
@@ -83,6 +85,7 @@ public class Robot extends IterativeRobot {
 				
 		driveTrain = new DriveTrain();
 		climber = new Climber();
+		cameras = new Cameras();
 		//shooter = new Shooter();
 		//collector = new Collector();
 		//popcornMachine = new PopcornMachine();
@@ -94,6 +97,8 @@ public class Robot extends IterativeRobot {
 		//add auto chooser panel
 		//addAutoChooser();
 		
+		//Cameras
+		CameraServer.getInstance().startAutomaticCapture();
 		
 	}
 	
