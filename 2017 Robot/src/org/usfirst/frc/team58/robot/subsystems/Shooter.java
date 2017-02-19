@@ -15,7 +15,7 @@ public class Shooter extends Subsystem{
 	 from CTRE onto my laptop, will likely have to do on Acer as well */
 	
 	public void initDefaultCommand(){
-		setDefaultCommand(new ShootVision());
+		//setDefaultCommand(new ShootVision());
 	}
 	
 	public Shooter(){

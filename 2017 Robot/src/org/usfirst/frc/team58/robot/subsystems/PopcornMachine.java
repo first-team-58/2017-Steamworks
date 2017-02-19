@@ -1,5 +1,6 @@
 package org.usfirst.frc.team58.robot.subsystems;
 
+import org.usfirst.frc.team58.robot.RobotMap;
 import org.usfirst.frc.team58.robot.commands.Drive;
 import org.usfirst.frc.team58.robot.commands.FeedFuel;
 
@@ -14,8 +15,13 @@ public class PopcornMachine extends Subsystem{
 	
 	
 	public void initDefaultCommand(){
-		setDefaultCommand(new FeedFuel());
+		//setDefaultCommand(new FeedFuel());
 	}
+	
+	public PopcornMachine() {
+		popcornTalon = new Talon(RobotMap.popcornMotor);
+	}
+	
 	public void runPopcornMotor(double speed){
 		popcornTalon.setSpeed(speed);
 	}

@@ -45,10 +45,10 @@ public class OI {
 	public Joystick oper = new Joystick(1);
 
 	public JoystickButton climberButton = new JoystickButton(oper, 4);
-	public Button shootButton = new JoystickButton(oper, 3);
-	public Button collectButton = new JoystickButton(oper, 2);
-	public Button spinUpButton = new JoystickButton(oper, 1);
-	public Button cameraSwapButton =  new JoystickButton(joy, 4);
+	public JoystickButton shootButton = new JoystickButton(oper, 3);
+	public JoystickButton collectButton = new JoystickButton(oper, 2);
+	public JoystickButton spinUpButton = new JoystickButton(oper, 1);
+	public JoystickButton cameraSwapButton =  new JoystickButton(joy, 4);
 	
 	// J.Manning 02.08.2017 - For assignments like this, you need to have the 
 	// code in some sort of method that actually runs it.
@@ -58,7 +58,7 @@ public class OI {
 		shootButton.whileHeld(new FeedFuel());
 		collectButton.whileHeld(new CollectFuel());
 		spinUpButton.whileHeld(new SpinUp());
-		cameraSwapButton.whenPressed(new SwapCameras());
+		//cameraSwapButton.whenPressed(new SwapCameras());
 
 		// T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem
 	}

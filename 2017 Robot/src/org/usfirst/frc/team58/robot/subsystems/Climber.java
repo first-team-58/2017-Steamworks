@@ -16,7 +16,7 @@ public class Climber extends Subsystem {
 	
 	
 	public void initDefaultCommand(){
-		setDefaultCommand(new Climb());
+		//setDefaultCommand(new Climb());
 	}
 	
 	

@@ -35,6 +35,15 @@ public class Climb extends Command{
     	//Robot.popcornMachine.runPopcornMotor(0.0);
     	//Robot.driveTrain.drive(0, 0);
     	Robot.shooter.Shoot(0);
+    	Robot.climber.climb(climberSpeed);
+    	
+//    	double motorCurrent = Robot.getClimberCurrent();
+//    	if (motorCurrent < maxClimberCurrent){
+//    		Robot.climber.climb(climberSpeed);
+//    		
+//    	} else {
+//    		Robot.climber.climb(0);
+//    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
