@@ -28,18 +28,19 @@ public class CollectFuel extends Command{
     	Dashboard.collectorOn = true;
     	
     	motorSpeeds = Dashboard.getCollectorSpeed();
- 
+    	Robot.collector.collectFuel(motorSpeeds);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    double moveValue = Robot.oi.joy.getRawAxis(RobotMap.moveAxis);
+    	Robot.collector.collectFuel(motorSpeeds);
+    /*double moveValue = Robot.oi.joy.getRawAxis(RobotMap.moveAxis);
     	if (moveValue > 0.05){
     		Robot.collector.collectFuel(motorSpeeds);
     	}else{
     		Robot.collector.collectFuel(stoppedSpeeds);
     	}
-       		
+     */  		
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -56,5 +57,8 @@ public class CollectFuel extends Command{
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+
+    	Dashboard.collectorOn = false;
+    	Robot.collector.collectFuel(stoppedSpeeds);
     }
 }

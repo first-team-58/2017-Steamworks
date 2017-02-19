@@ -51,11 +51,12 @@ public class Dashboard {
 	 */
 	public static void addPreferences(){
 		prefs = Preferences.getInstance();
-		climberSpeed = prefs.getDouble("Climber Motor Speed", 0.5);
-		shooterSpeed = prefs.getDouble("Shooter Motor Speed", 0.5);
+		climberSpeed = prefs.getDouble("Climber Motor Speed", 1.0);
+		//Changed shooterSpeed from 1.0 to -1.0 in attempt to reverse direction 2/19/17 Sean
+		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -1.0);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 0.5);
 		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", 0.5);
-		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 0.5);
+		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 1.0);
 		nearShootDistance = prefs.getDouble("Near Shoot Distance", 0.5);
 		farShootDistance = prefs.getDouble("Far Shoot Distance", 0.5);
 		shooterP = prefs.getDouble("Shooter P Value", 0.5);
