@@ -24,6 +24,19 @@ public class FeedFuel extends Command{
     protected void initialize() {
     	motorSpeed = Dashboard.getPopcornSpeed();
     	Robot.popcornMachine.runPopcornMotor(motorSpeed);
+    	
+//    	double PopperCurrent = Robot.getPopperCurrent();
+//    	if (PopperCurrent < maxPopperCurrent){
+//    		Robot.popcornMachine.runPopcornMotor(motorSpeed);
+//    		
+//    	} else {
+//    	motorSpeed=(motorSpeed*-1)	
+//    	Robot.popcornMachine.runPopcornMotor(motorSpeed);
+//    	}
+    	//long Start = System.currentTimeMillis();
+    	//while (Start < (Start + 500)){
+    	//long End = System.currentTimeMillis();
+    	//}
     }
 
     // Called repeatedly when this Command is scheduled to run

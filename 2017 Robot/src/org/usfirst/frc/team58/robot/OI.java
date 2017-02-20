@@ -41,14 +41,14 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 
-	public Joystick joy = new Joystick(0);
-	public Joystick oper = new Joystick(1);
+	public Joystick joy = new Joystick(RobotMap.joy);
+	public Joystick oper = new Joystick(RobotMap.oper);
 
-	public JoystickButton climberButton = new JoystickButton(oper, 4);
-	public JoystickButton shootButton = new JoystickButton(oper, 3);
-	public JoystickButton collectButton = new JoystickButton(oper, 2);
-	public JoystickButton spinUpButton = new JoystickButton(oper, 1);
-	public JoystickButton cameraSwapButton =  new JoystickButton(joy, 4);
+	public JoystickButton climberButton = new JoystickButton(oper, RobotMap.y);
+	public JoystickButton shootButton = new JoystickButton(oper, RobotMap.x);
+	public JoystickButton collectButton = new JoystickButton(oper, RobotMap.b);
+	public JoystickButton spinUpButton = new JoystickButton(oper, RobotMap.a);
+	public JoystickButton cameraSwapButton =  new JoystickButton(joy, RobotMap.swapCamera);
 	
 	// J.Manning 02.08.2017 - For assignments like this, you need to have the 
 	// code in some sort of method that actually runs it.

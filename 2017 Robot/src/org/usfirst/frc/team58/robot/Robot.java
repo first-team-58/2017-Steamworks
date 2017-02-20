@@ -148,5 +148,9 @@ public class Robot extends IterativeRobot {
 	public static double getClimberCurrent(){
 		return pdp.getCurrent(RobotMap.climberMotor);
 	}
+	
+	// RML 2-19-2017 Pop Popper check current for jam
+	//public static double getPopperCurrent(){
+	//	return pdp.getCurrent(RobotMap.climberMotor);
 
 }

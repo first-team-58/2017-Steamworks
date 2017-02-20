@@ -19,7 +19,7 @@ public class Shooter extends Subsystem{
 	}
 	
 	public Shooter(){
-		shooterMotor = new CANTalon(0);
+		shooterMotor = new CANTalon(RobotMap.shooterMotor);
 		//shooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		
 		//Got PID values from preferences in Robot.java. Set them in the talon.

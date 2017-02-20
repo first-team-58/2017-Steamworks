@@ -1,5 +1,7 @@
 package org.usfirst.frc.team58.robot;
 
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -11,32 +13,38 @@ public class RobotMap {
 	public static int rightMotor = 0;
 	public static int leftMotor = 1;
 	public static int climberMotor = 2;
-	public static int speedSolenoid = 3;
 	public static int beltMotor = 4;
 	public static int brushMotor = 5;
 	public static int popcornMotor = 6;
+	
+	//Relay
 	public static int lightSpike = 0;
-	public static int shooterMotor = 9;
-	//Input ports
+
+	//CAN Bus
+	public static int shooterMotor = 0;
+	
+	//Solenoid
+	public static int speedSolenoid = 3;
+	
+	//sensors
 	public static int leftEncoder = 0;
 	public static int rightEncoder = 1;
 	
-
+	//controls
+	public static int joy = 0;
+	public static int oper = 1;
 	
-	//public static int rightRearMotor;
-	
+	// buttons on driver joystick
 	public static int moveAxis = 1;
 	public static int rotateAxis = 4;
 	public static int triggerAxis = 3;
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
+	public static int lightButton = 3;
+	public static int swapCamera = 4;
 	
+	// buttons on operator joystick
+	public static int y = 4; // climb
+	public static int b = 2; // collect
+	public static int a = 1; // spin up
+	public static int x = 3; // feed fuel
 
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
 }
