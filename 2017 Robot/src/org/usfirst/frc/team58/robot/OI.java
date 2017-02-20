@@ -53,7 +53,7 @@ public class OI {
 	public OI() {
 		// T.Hansen 02.08.2017 - For some reason, it doesn't like this.
 		climberButton.whileHeld(new Climb());
-		shootButton.whileHeld(new FeedFuel());
+		shootButton.whenPressed(new FeedFuel());
 		collectButton.whileHeld(new CollectFuel());
 		spinUpButton.whileHeld(new SpinUp());
 		//cameraSwapButton.whenPressed(new SwapCameras());

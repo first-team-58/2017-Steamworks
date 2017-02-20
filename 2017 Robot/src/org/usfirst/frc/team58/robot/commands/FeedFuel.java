@@ -27,6 +27,11 @@ public class FeedFuel extends Command{
     	maxPopperCurrent = Dashboard.getMaxPopperCurrent();
     	Robot.popcornMachine.runPopcornMotor(motorSpeed);
     	
+
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
     	double PopperCurrent = Robot.getPopperCurrent();
     	if (PopperCurrent < maxPopperCurrent){
     		Robot.popcornMachine.runPopcornMotor(motorSpeed);
@@ -36,22 +41,18 @@ public class FeedFuel extends Command{
         		Robot.popcornMachine.runPopcornMotor(-motorSpeed);
     		}
     	}
-    }
-
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.popcornMachine.runPopcornMotor(motorSpeed);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        boolean shooterOn = Robot.oi.spinUpButton.get();
+        return !shooterOn;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	
+    	Robot.popcornMachine.runPopcornMotor(0);
     }
 
     // Called when another command which requires one or more of the same
