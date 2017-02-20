@@ -38,6 +38,7 @@ public class Dashboard {
 	public static double driverD;
 	public static double rotateSpeed;
 	public static double maxClimberCurrent;
+	public static double maxPopperCurrent;
 	
 	public static void initDashboard() {
 		addPreferences();
@@ -52,10 +53,10 @@ public class Dashboard {
 		prefs = Preferences.getInstance();
 		climberSpeed = prefs.getDouble("Climber Motor Speed", 1.0);
 		//Changed shooterSpeed from 1.0 to -1.0 in attempt to reverse direction 2/19/17 Sean
-		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -5.0);
+		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -0.7);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 1);
 		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", 1);
-		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", .35);
+		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", .5);
 		shootDistance = prefs.getDouble("Shoot Distance", 0.5); // what is the unit on this?
 		shooterP = prefs.getDouble("Shooter P Value", 0.5);
 		shooterI = prefs.getDouble("Shooter I Value", 0.5);
@@ -65,6 +66,7 @@ public class Dashboard {
 		driverD = prefs.getDouble("Driver D Value", 0.5);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.2);
 		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 1);
+		maxPopperCurrent = prefs.getDouble("Max Popper Current", 20);
 	}
 	
 	/**
@@ -149,5 +151,10 @@ public class Dashboard {
 	public static double getMaxClimberCurrent(){
 		return maxClimberCurrent;
 	}
-
+	/*
+	 * @return maximum popper current.
+	 */
+	public static double getMaxPopperCurrent(){
+		return maxPopperCurrent;
+	}
 }

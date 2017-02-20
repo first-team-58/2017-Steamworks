@@ -54,12 +54,14 @@ public class Robot extends IterativeRobot {
 		popcornMachine = new PopcornMachine();
 		pdp = new PowerDistributionPanel();
 		aimingLight = new AimingLight();
-		//cameras = new Cameras();
+		cameras = new Cameras();
 		oi = new OI();
 		
 		Dashboard.initDashboard();
 		
 		autonomousCommand = Dashboard.getAutoProgram();
+		
+		//CameraServer.getInstance().startAutomaticCapture(new UsbCamera("cam1", 1));
 			
 	}
 
@@ -150,7 +152,7 @@ public class Robot extends IterativeRobot {
 	}
 	
 	// RML 2-19-2017 Pop Popper check current for jam
-	//public static double getPopperCurrent(){
-	//	return pdp.getCurrent(RobotMap.climberMotor);
-
+	public static double getPopperCurrent(){
+		return pdp.getCurrent(RobotMap.popcornMotor);
+	}
 }

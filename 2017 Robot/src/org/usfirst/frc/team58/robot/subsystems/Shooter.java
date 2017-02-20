@@ -2,8 +2,6 @@ package org.usfirst.frc.team58.robot.subsystems;
 
 import org.usfirst.frc.team58.robot.Dashboard;                                                                                                                                                               
 import org.usfirst.frc.team58.robot.RobotMap;
-import org.usfirst.frc.team58.robot.commands.ShootVision;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;

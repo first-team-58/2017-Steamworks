@@ -28,7 +28,6 @@ public class Climb extends Command{
     protected void initialize() {
     	maxClimberCurrent = Dashboard.getMaxClimberCurrent();
     	climberSpeed = Dashboard.getClimberSpeed();
-    	
     	//T.Hansen - Turns off all other subsystems
     	double[] collectorOff = {0.0,0.0};
     	Robot.collector.collectFuel(collectorOff);

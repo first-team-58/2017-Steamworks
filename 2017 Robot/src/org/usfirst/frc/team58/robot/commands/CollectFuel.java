@@ -2,7 +2,6 @@ package org.usfirst.frc.team58.robot.commands;
 
 import org.usfirst.frc.team58.robot.Dashboard;
 import org.usfirst.frc.team58.robot.Robot;
-import org.usfirst.frc.team58.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class CollectFuel extends Command{

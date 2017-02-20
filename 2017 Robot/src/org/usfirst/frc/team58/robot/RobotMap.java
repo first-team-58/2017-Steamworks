@@ -1,6 +1,5 @@
 package org.usfirst.frc.team58.robot;
 
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -10,8 +9,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class RobotMap {
 	//PWM Ports
-	public static int rightMotor = 0;
-	public static int leftMotor = 1;
+	public static int frontRightMotor = 0;
+	public static int frontLeftMotor = 1;
+	public static int rearRightMotor = 3;
+	public static int rearLeftMotor = 7;
 	public static int climberMotor = 2;
 	public static int beltMotor = 4;
 	public static int brushMotor = 5;
@@ -39,7 +40,7 @@ public class RobotMap {
 	public static int rotateAxis = 4;
 	public static int triggerAxis = 3;
 	public static int lightButton = 3;
-	public static int swapCamera = 4;
+	public static int swapCamera = 4; // driver joystick y button
 	
 	// buttons on operator joystick
 	public static int y = 4; // climb

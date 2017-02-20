@@ -13,6 +13,7 @@ public class FeedFuel extends Command{
 	 * machine into the shooter for launching fuel into the high boiler. */
 	
 	double motorSpeed;
+	double maxPopperCurrent;
 	
 	public FeedFuel() {
         // Use requires() here to declare subsystem dependencies
@@ -23,20 +24,18 @@ public class FeedFuel extends Command{
     // Called just before this Command runs the first time
     protected void initialize() {
     	motorSpeed = Dashboard.getPopcornSpeed();
+    	maxPopperCurrent = Dashboard.getMaxPopperCurrent();
     	Robot.popcornMachine.runPopcornMotor(motorSpeed);
     	
-//    	double PopperCurrent = Robot.getPopperCurrent();
-//    	if (PopperCurrent < maxPopperCurrent){
-//    		Robot.popcornMachine.runPopcornMotor(motorSpeed);
-//    		
-//    	} else {
-//    	motorSpeed=(motorSpeed*-1)	
-//    	Robot.popcornMachine.runPopcornMotor(motorSpeed);
-//    	}
-    	//long Start = System.currentTimeMillis();
-    	//while (Start < (Start + 500)){
-    	//long End = System.currentTimeMillis();
-    	//}
+    	double PopperCurrent = Robot.getPopperCurrent();
+    	if (PopperCurrent < maxPopperCurrent){
+    		Robot.popcornMachine.runPopcornMotor(motorSpeed);
+    	} else {
+    		long start = System.currentTimeMillis();
+    		while (System.currentTimeMillis() < (start+500)){
+        		Robot.popcornMachine.runPopcornMotor(-motorSpeed);
+    		}
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run

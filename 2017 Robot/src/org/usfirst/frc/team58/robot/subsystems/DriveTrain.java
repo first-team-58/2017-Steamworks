@@ -2,13 +2,10 @@ package org.usfirst.frc.team58.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
-
-import org.usfirst.frc.team58.robot.Robot;
 import org.usfirst.frc.team58.robot.RobotMap;
 import org.usfirst.frc.team58.robot.commands.Drive;
 
@@ -17,8 +14,10 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class DriveTrain extends PIDSubsystem {
-	public static Talon leftMotor;
-	public static Talon rightMotor;
+	public static Talon frontLeftMotor;
+	public static Talon frontRightMotor;
+	public static Talon rearLeftMotor;
+	public static Talon rearRightMotor;
 	public static Solenoid speedSolenoid;
 	private RobotDrive drive;
 	//T.Hansen - Declared encoders leftEnc and rightEnc
@@ -64,10 +63,13 @@ public class DriveTrain extends PIDSubsystem {
 	//Constructor
 	public DriveTrain(double P, double I, double D){
 		super("PID", P, I, D);
-		leftMotor = new Talon(RobotMap.leftMotor);
-		rightMotor = new Talon(RobotMap.rightMotor);
+		frontLeftMotor = new Talon(RobotMap.frontLeftMotor);
+		frontRightMotor = new Talon(RobotMap.frontRightMotor);
+		rearLeftMotor = new Talon(RobotMap.rearLeftMotor);
+		rearRightMotor = new Talon(RobotMap.rearRightMotor);
 		speedSolenoid = new Solenoid(RobotMap.speedSolenoid);
-		drive = new RobotDrive(leftMotor, rightMotor);
+		drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+		
 		//T.Hansen - Contructed encoders leftEnc and rightEnc
 		leftEnc = new Encoder58(0);
 		rightEnc = new Encoder58(1);
