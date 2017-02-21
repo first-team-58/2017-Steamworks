@@ -47,6 +47,7 @@ public class OI {
 	public JoystickButton collectButton = new JoystickButton(oper, RobotMap.b);
 	public JoystickButton spinUpButton = new JoystickButton(oper, RobotMap.a);
 	public JoystickButton cameraSwapButton =  new JoystickButton(joy, RobotMap.swapCamera);
+	public JoystickButton lightButton = new JoystickButton(joy, RobotMap.shineLight); // right bumper (boost is right trigger)
 	
 	// J.Manning 02.08.2017 - For assignments like this, you need to have the 
 	// code in some sort of method that actually runs it.
@@ -56,7 +57,9 @@ public class OI {
 		shootButton.whenPressed(new FeedFuel());
 		collectButton.whileHeld(new CollectFuel());
 		spinUpButton.whileHeld(new SpinUp());
+		lightButton.whileHeld(new ShineLight());
 		//cameraSwapButton.whenPressed(new SwapCameras());
+		
 
 		// T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem
 	}

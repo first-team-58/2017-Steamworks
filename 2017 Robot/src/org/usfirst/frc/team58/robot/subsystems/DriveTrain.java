@@ -29,13 +29,14 @@ public class DriveTrain extends PIDSubsystem {
 	
 	private class Encoder58 {
 		private Counter encCount;
-		private double distance = 1;
+		private double distance = 12;
 		
 		private Encoder58(int port) {
 			encCount = new Counter(port);
 		}
 		
 		private double getRate() {
+			System.out.println(encCount.get());
 			return encCount.getRate() * distance;
 		}
 		
@@ -97,18 +98,18 @@ public class DriveTrain extends PIDSubsystem {
 		return averageDistance;
 	}
 	
-	public static double getLeft(){
+	public double getLeft(){
 		double leftEncValue = leftEnc.getRate();
 		return leftEncValue;
 	}
 	
-	public static double getRight(){
+	public double getRight(){
 		double rightEncValue = rightEnc.getRate();
 		return rightEncValue;
 	}
 	
 	//function that averages the rates of each encoder
-	public static double getAverageRate(){
+	public double getAverageRate(){
 		return (getRight() + getLeft()) / 2;
 	}
 	

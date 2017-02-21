@@ -135,6 +135,9 @@ public class Robot extends IterativeRobot {
 		
 		SmartDashboard.putNumber("Shooter Current", pdp.getCurrent(RobotMap.shooterMotor));
 		SmartDashboard.putNumber("Climber Current", pdp.getCurrent(RobotMap.climberMotor));
+		SmartDashboard.putNumber("Left Encoder", driveTrain.getLeft());
+		SmartDashboard.putNumber("Right Encoder", driveTrain.getRight());
+		
 		//SmartDashboard.putBoolean("Collector On", collectorOn);
 		//SmartDashboard.putNumber("Shooter Rate", shooter.getRate());
 	}

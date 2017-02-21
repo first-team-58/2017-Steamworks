@@ -15,18 +15,14 @@ public class ShineLight extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	Robot.aimingLight.shineLight(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double triggerValue = Robot.oi.joy.getRawAxis(RobotMap.triggerAxis);
-    	
-    	if(triggerValue <= -.75){
     	Robot.aimingLight.shineLight(true);
-    	} else{
-    	Robot.aimingLight.shineLight(false);	
-    	}
+    	
+ 
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -42,6 +38,7 @@ public class ShineLight extends Command{
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.aimingLight.shineLight(false);
     }
 }
 
