@@ -27,12 +27,16 @@ public class ReverseCollect extends Command{
     	Dashboard.collectorOn = true;
     	
     	motorSpeeds = Dashboard.getBackwardsCollectorSpeed();
-    	Robot.collector.collectFuel(motorSpeeds);
+    	
+    	if(Robot.oi.collectButton.get()) {
+    		// do nothing
+    	}else{
+    		Robot.collector.collectFuel(motorSpeeds);
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.collectFuel(motorSpeeds);
     /*double moveValue = Robot.oi.joy.getRawAxis(RobotMap.moveAxis);
     	if (moveValue > 0.05){
     		Robot.collector.collectFuel(motorSpeeds);
@@ -40,6 +44,11 @@ public class ReverseCollect extends Command{
     		Robot.collector.collectFuel(stoppedSpeeds);
     	}
      */  		
+    	if(Robot.oi.collectButton.get()) {
+    		// do nothing
+    	}else{
+    		Robot.collector.collectFuel(motorSpeeds);
+    	}
     }
     
     protected boolean isFinished() {
