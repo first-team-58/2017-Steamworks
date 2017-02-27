@@ -122,6 +122,10 @@ public class Dashboard {
 		double[] collectorSpeeds = {collectorBeltSpeed, collectorBrushSpeed};
 		return collectorSpeeds;
 	}
+	public static double[] getBackwardsCollectorSpeed(){
+		double[] backwardsCollectorSpeeds = {-collectorBeltSpeed, -collectorBrushSpeed};
+		return backwardsCollectorSpeeds;
+	}
 	/*
 	 * @return shooterPIDs as a double array.
 	 */

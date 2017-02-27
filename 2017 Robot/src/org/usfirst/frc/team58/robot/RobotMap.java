@@ -47,5 +47,6 @@ public class RobotMap {
 	public static int b = 2; // collect
 	public static int a = 1; // spin up
 	public static int x = 3; // feed fuel
+	public static int reverse = 6; //reverse collector
 
 }
