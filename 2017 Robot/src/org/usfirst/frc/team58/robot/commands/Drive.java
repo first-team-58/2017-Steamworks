@@ -24,6 +24,16 @@ public class Drive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double moveValue = Robot.oi.joy.getRawAxis(RobotMap.moveAxis);
+    	//Set moveValue to 100% if moveAxis is 90%. Bob L 2/25/17.  
+    	//This change is because the robot is turning on it own.  
+    	//Also, it seems slower than it should be.
+    	if (moveValue>.9){
+    		moveValue=1;
+    	}
+    	if (moveValue<-.9){
+    		moveValue=-1;
+    	}
+
     	double rotateValue = Robot.oi.joy.getRawAxis(RobotMap.rotateAxis);
     	double triggerValue = Robot.oi.joy.getRawAxis(RobotMap.triggerAxis);
     	Robot.driveTrain.drive(-moveValue, -rotateValue);
@@ -40,6 +50,8 @@ public class Drive extends Command {
     	}else{
     		DriveTrain.speedSolenoid.set(false);
     	}
+    	
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
