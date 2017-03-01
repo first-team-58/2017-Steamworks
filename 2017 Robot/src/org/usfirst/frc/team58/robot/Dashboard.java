@@ -53,14 +53,14 @@ public class Dashboard {
 		prefs = Preferences.getInstance();
 		climberSpeed = prefs.getDouble("Climber Motor Speed", 1.0);
 		//Changed shooterSpeed from 1.0 to -1.0 in attempt to reverse direction 2/19/17 Sean
-		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -.85);
+		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -.79);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 1);
-		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", .5);
+		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", .8);
 		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", .5);
 		shootDistance = prefs.getDouble("Shoot Distance", 0.5); // what is the unit on this?
-		shooterP = prefs.getDouble("Shooter P Value", 0.5);
-		shooterI = prefs.getDouble("Shooter I Value", 0.5);
-		shooterD = prefs.getDouble("Shooter D Value", 0.5);
+		shooterP = prefs.getDouble("Shooter P Value", 0);
+		shooterI = prefs.getDouble("Shooter I Value", 0);
+		shooterD = prefs.getDouble("Shooter D Value", 0);
 		driverP = prefs.getDouble("Driver P Value", 0.5);
 		driverI = prefs.getDouble("Driver I Value", 0.5);
 		driverD = prefs.getDouble("Driver D Value", 0.5);
