@@ -19,18 +19,23 @@ public class Shooter extends Subsystem{
 	public Shooter(){
 		shooterMotor = new CANTalon(RobotMap.shooterMotor);
 		shooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		shooterMotor.reverseSensor(false);
 		
+		shooterMotor.configNominalOutputVoltage(+0.0f, -0.0f);
+		shooterMotor.configPeakOutputVoltage(+12.0f, -12.0f);
 		//Got PID values from preferences in Robot.java. Set them in the talon.
 		double[] shooterPID = Dashboard.getShooterPID();
-		//shooterMotor.setP(shooterPID[0]);
-		//shooterMotor.setI(shooterPID[1]);
-		//shooterMotor.setD(shooterPID[2]);
+		shooterMotor.setProfile(0);
+		shooterMotor.setF(0.1097);
+		shooterMotor.setP(shooterPID[0]);
+		shooterMotor.setI(shooterPID[1]);
+		shooterMotor.setD(shooterPID[2]);
 	}
 	 
 	public void Shoot(double shootSpeed){
-		//shooterMotor.changeControlMode(TalonControlMode.Speed);
-		//shooterMotor.setF(shootSpeed);
+		shooterMotor.changeControlMode(TalonControlMode.Speed);
 		shooterMotor.set(shootSpeed);
+		
 	}
 	
 	//public double getRate(){
