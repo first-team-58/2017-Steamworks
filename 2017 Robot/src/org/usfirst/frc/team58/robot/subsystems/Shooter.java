@@ -33,7 +33,7 @@ public class Shooter extends Subsystem{
 	}
 	 
 	public void Shoot(double shootSpeed){
-		shooterMotor.changeControlMode(TalonControlMode.Speed);
+		//changeControlMode(TalonControlMode.Speed);
 		shooterMotor.set(shootSpeed);
 		
 	}

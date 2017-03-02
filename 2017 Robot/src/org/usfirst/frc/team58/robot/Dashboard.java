@@ -53,12 +53,12 @@ public class Dashboard {
 		prefs = Preferences.getInstance();
 		climberSpeed = prefs.getDouble("Climber Motor Speed", 1.0);
 		//Changed shooterSpeed from 1.0 to -1.0 in attempt to reverse direction 2/19/17 Sean
-		shooterSpeed = prefs.getDouble("Shooter Motor Speed", 9000);
+		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -0.85);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 1);
 		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", .8);
-		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", .5);
+		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", .65);
 		shootDistance = prefs.getDouble("Shoot Distance", 0.5); // what is the unit on this?
-		shooterP = prefs.getDouble("Shooter P Value", 0);
+		shooterP = prefs.getDouble("Shooter P Value", 100);
 		shooterI = prefs.getDouble("Shooter I Value", 0);
 		shooterD = prefs.getDouble("Shooter D Value", 0);
 		driverP = prefs.getDouble("Driver P Value", 0.5);
@@ -66,7 +66,7 @@ public class Dashboard {
 		driverD = prefs.getDouble("Driver D Value", 0.5);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.2);
 		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 1);
-		maxPopperCurrent = prefs.getDouble("Max Popper Current", 20);
+		maxPopperCurrent = prefs.getDouble("Max Popper Current", 10);
 	}
 	
 	/**
