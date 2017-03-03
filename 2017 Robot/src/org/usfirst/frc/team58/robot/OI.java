@@ -43,10 +43,9 @@ public class OI {
 	public Joystick oper = new Joystick(RobotMap.oper);
 
 	public JoystickButton climberButton = new JoystickButton(oper, RobotMap.y);
-	public JoystickButton shootButton = new JoystickButton(oper, RobotMap.x);
 	public JoystickButton collectButton = new JoystickButton(oper, RobotMap.b);
 	public JoystickButton reverseCollectButton = new JoystickButton(oper, RobotMap.reverse);
-	public JoystickButton spinUpButton = new JoystickButton(oper, RobotMap.a);
+	public JoystickButton feedButton = new JoystickButton(oper, RobotMap.x);
 	public JoystickButton cameraSwapButton =  new JoystickButton(joy, RobotMap.swapCamera);
 	public JoystickButton lightButton = new JoystickButton(joy, RobotMap.shineLight); // right bumper (boost is right trigger)
 	
@@ -55,9 +54,8 @@ public class OI {
 	public OI() {
 		// T.Hansen 02.08.2017 - For some reason, it doesn't like this.
 		climberButton.whileHeld(new Climb());
-		shootButton.whenPressed(new FeedFuel());
 		collectButton.whileHeld(new CollectFuel());
-		spinUpButton.whileHeld(new SpinUp());
+		feedButton.whenPressed(new FeedFuel());
 		lightButton.whileHeld(new ShineLight());
 		reverseCollectButton.whileHeld(new ReverseCollect());
 		//cameraSwapButton.whenPressed(new SwapCameras());

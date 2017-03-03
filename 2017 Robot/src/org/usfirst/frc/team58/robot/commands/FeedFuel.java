@@ -2,6 +2,8 @@ package org.usfirst.frc.team58.robot.commands;
 
 import org.usfirst.frc.team58.robot.Dashboard;
 import org.usfirst.frc.team58.robot.Robot;
+import org.usfirst.frc.team58.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class FeedFuel extends Command{
@@ -46,7 +48,13 @@ public class FeedFuel extends Command{
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        boolean shooterOn = Robot.oi.spinUpButton.get();
+    	double trigger = Robot.oi.oper.getRawAxis(RobotMap.triggerAxis);
+    	boolean shooterOn;
+    	if(trigger >= .75){
+    		shooterOn = true;
+    	} else{
+    		shooterOn = false;
+    	}
         return !shooterOn;
     }
 

@@ -2,6 +2,8 @@ package org.usfirst.frc.team58.robot.commands;
 
 import org.usfirst.frc.team58.robot.Dashboard;
 import org.usfirst.frc.team58.robot.Robot;
+import org.usfirst.frc.team58.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SpinUp extends Command{
@@ -21,12 +23,17 @@ public class SpinUp extends Command{
     // Called just before this Command runs the first time
     protected void initialize() {
     	shootSpeed = Dashboard.getShooterSpeed();
-    	Robot.shooter.Shoot(shootSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.Shoot(shootSpeed);
+    	
+    	if(Robot.oi.oper.getRawAxis(RobotMap.triggerAxis) >= .75){
+    		Robot.shooter.Shoot(shootSpeed);
+    	}else{
+    		Robot.shooter.disable();
+    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,12 +44,14 @@ public class SpinUp extends Command{
     // Called once after isFinished returns true
     protected void end() {
     	Robot.shooter.Shoot(0);
+    	Robot.shooter.disable();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.shooter.Shoot(0);
+    	Robot.shooter.disable();
     }
 }
 

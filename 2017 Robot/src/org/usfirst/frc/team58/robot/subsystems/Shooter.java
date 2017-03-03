@@ -2,6 +2,8 @@ package org.usfirst.frc.team58.robot.subsystems;
 
 import org.usfirst.frc.team58.robot.Dashboard;                                                                                                                                                               
 import org.usfirst.frc.team58.robot.RobotMap;
+import org.usfirst.frc.team58.robot.commands.SpinUp;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
@@ -13,7 +15,7 @@ public class Shooter extends Subsystem{
 	 from CTRE onto my laptop, will likely have to do on Acer as well */
 	
 	public void initDefaultCommand(){
-		//setDefaultCommand(new ShootVision());
+		setDefaultCommand(new SpinUp());
 	}
 	
 	public Shooter(){
@@ -21,21 +23,30 @@ public class Shooter extends Subsystem{
 		shooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		shooterMotor.reverseSensor(false);
 		
+		shooterMotor.configEncoderCodesPerRev(360);
+		
 		shooterMotor.configNominalOutputVoltage(+0.0f, -0.0f);
 		shooterMotor.configPeakOutputVoltage(+12.0f, -12.0f);
 		//Got PID values from preferences in Robot.java. Set them in the talon.
 		double[] shooterPID = Dashboard.getShooterPID();
 		shooterMotor.setProfile(0);
-		shooterMotor.setF(0.1097);
-		shooterMotor.setP(shooterPID[0]);
-		shooterMotor.setI(shooterPID[1]);
-		shooterMotor.setD(shooterPID[2]);
+		shooterMotor.setF(1);
+		shooterMotor.setP(1);
+		shooterMotor.setI(1);
+		shooterMotor.setD(1);
 	}
 	 
 	public void Shoot(double shootSpeed){
-		//changeControlMode(TalonControlMode.Speed);
+		shooterMotor.changeControlMode(TalonControlMode.Speed);
 		shooterMotor.set(shootSpeed);
-		
+		System.out.println(shooterMotor.getSpeed());
+		shooterMotor.enable();
+	}
+	
+	public void disable() {
+		shooterMotor.disable();
+		shooterMotor.changeControlMode(TalonControlMode.PercentVbus);
+		shooterMotor.set(0);
 	}
 	
 	//public double getRate(){
