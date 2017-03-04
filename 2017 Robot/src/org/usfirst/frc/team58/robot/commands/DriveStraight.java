@@ -19,7 +19,7 @@ public class DriveStraight extends Command{
     	Robot.driveTrain.setSetpoint(distance);
     	Robot.driveTrain.setOutputRange(-1.0, 1.0);
     	//Robot.driveTrain.getPIDController().setPID(p, i, d);
-    	//Robot.driveTrain.getPIDController().setTolerance(15.0); //the percent for this is out of 100.00, so 15.0 is 15%
+    	Robot.driveTrain.getPIDController().setAbsoluteTolerance(3);
     	Robot.driveTrain.resetDistance();
     	Robot.driveTrain.gyroReset();
     	Robot.driveTrain.enable();

@@ -39,12 +39,12 @@ public class Drive extends Command {
     	//Deadbands for driving controllers
     	if ((moveValue <= 0.2) && (moveValue >= -0.2)){
     		moveValue = 0;
-    		System.out.println("This is getting stuff");
+    		//System.out.println("This is getting stuff");
     	}
     	
     	if ((rotateValue <= 0.2) && (rotateValue >= -0.2)){
     		rotateValue = 0;
-    		System.out.println("rotate deadband");
+    		//System.out.println("rotate deadband");
     	}
 
     	

@@ -29,14 +29,14 @@ public class DriveTrain extends PIDSubsystem {
 	
 	private class Encoder58 {
 		private Counter encCount;
-		private double distance = 12;
+		private double distance = 3;
 		
 		private Encoder58(int port) {
 			encCount = new Counter(port);
 		}
 		
 		private double getRate() {
-			System.out.println(encCount.get());
+			//System.out.println(encCount.get());
 			return encCount.getRate() * distance;
 		}
 		
@@ -74,8 +74,13 @@ public class DriveTrain extends PIDSubsystem {
 		//T.Hansen - Contructed encoders leftEnc and rightEnc
 		leftEnc = new Encoder58(0);
 		rightEnc = new Encoder58(1);
-		leftEnc.setDistancePerPulse(12);
-		rightEnc.setDistancePerPulse(12);
+		leftEnc.setDistancePerPulse(3);
+		rightEnc.setDistancePerPulse(3);
+		
+		// PID control only goes to 3 inches of tolerance
+		setAbsoluteTolerance(3);
+		
+		
 		
 	}
 	
@@ -85,11 +90,6 @@ public class DriveTrain extends PIDSubsystem {
 	   	}
 	}
 	
-	public void driveStraight(double speed){
-		drive.arcadeDrive(speed, 0);
-		double ratio = getLeft() / getRight();
-		
-	}
 
 	public static double getDistance(){
 		double leftDistance = leftEnc.getDistance();
@@ -142,6 +142,7 @@ public class DriveTrain extends PIDSubsystem {
 	public void gyroReset(){
 		ahrs.reset();
 	}
+	
 
 }
 

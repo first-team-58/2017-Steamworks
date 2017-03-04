@@ -33,6 +33,7 @@ public class Dashboard {
 	public static double shooterP;
 	public static double shooterI;
 	public static double shooterD;
+	public static double shooterF;
 	public static double driverP;
 	public static double driverI;
 	public static double driverD;
@@ -53,20 +54,21 @@ public class Dashboard {
 		prefs = Preferences.getInstance();
 		climberSpeed = prefs.getDouble("Climber Motor Speed", 1.0);
 		//Changed shooterSpeed from 1.0 to -1.0 in attempt to reverse direction 2/19/17 Sean
-		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -5000);
+		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -4000);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 1);
 		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", .8);
 		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", .65);
 		shootDistance = prefs.getDouble("Shoot Distance", 0.5); // what is the unit on this?
-		shooterP = prefs.getDouble("Shooter P Value", 100);
-		shooterI = prefs.getDouble("Shooter I Value", 0);
+		shooterP = prefs.getDouble("Shooter P Value", 0.45);    
+		shooterI = prefs.getDouble("Shooter I Value", 0.00045);
 		shooterD = prefs.getDouble("Shooter D Value", 0);
-		driverP = prefs.getDouble("Driver P Value", 0.5);
-		driverI = prefs.getDouble("Driver I Value", 0.5);
-		driverD = prefs.getDouble("Driver D Value", 0.5);
+		shooterF = prefs.getDouble("Shooter F Value", 0.0946);
+		driverP = prefs.getDouble("Driver P Value", 2);
+		driverI = prefs.getDouble("Driver I Value", 0);
+		driverD = prefs.getDouble("Driver D Value", 0);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.2);
 		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 1);
-		maxPopperCurrent = prefs.getDouble("Max Popper Current", 10);
+		maxPopperCurrent = prefs.getDouble("Max Popper Current", 5);
 	}
 	
 	/**
@@ -130,7 +132,7 @@ public class Dashboard {
 	 * @return shooterPIDs as a double array.
 	 */
 	public static double[] getShooterPID(){
-		double[] shooterPID = {shooterP, shooterI, shooterD};
+		double[] shooterPID = {shooterP, shooterI, shooterD, shooterF};
 		return shooterPID;
 	}
 	
