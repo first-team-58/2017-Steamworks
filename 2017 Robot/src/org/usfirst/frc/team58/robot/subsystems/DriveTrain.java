@@ -91,10 +91,11 @@ public class DriveTrain extends PIDSubsystem {
 	}
 	
 
-	public static double getDistance(){
+	public double getDistance(){
 		double leftDistance = leftEnc.getDistance();
 		double rightDistance = rightEnc.getDistance();
-		double averageDistance = leftDistance / 2 + rightDistance / 2;
+		//double averageDistance = leftDistance / 2 + rightDistance / 2;
+		double averageDistance = rightDistance; // left encoder not working?
 		return averageDistance;
 	}
 	
@@ -126,7 +127,12 @@ public class DriveTrain extends PIDSubsystem {
 
 	public double getAngleCorrection() {
 		//Change this to the navx code once it is imported.
-		return -getAngle();
+		double angle = getAngle();
+		if (abs(angle)<2) {
+			return 0;
+		} else {
+			return getAngle();
+		}	
 	}
 	
 	@Override
@@ -141,6 +147,14 @@ public class DriveTrain extends PIDSubsystem {
 	
 	public void gyroReset(){
 		ahrs.reset();
+	}
+	
+	public double abs(double x) {
+		if (x>=0) {
+			return x;
+		} else {
+			return -1*x;
+		}
 	}
 	
 

@@ -46,8 +46,9 @@ public class OI {
 	public JoystickButton collectButton = new JoystickButton(oper, RobotMap.b);
 	public JoystickButton reverseCollectButton = new JoystickButton(oper, RobotMap.reverse);
 	public JoystickButton feedButton = new JoystickButton(oper, RobotMap.x);
-	public JoystickButton cameraSwapButton =  new JoystickButton(joy, RobotMap.swapCamera);
+	//public JoystickButton cameraSwapButton =  new JoystickButton(joy, RobotMap.swapCamera);
 	public JoystickButton driveThree = new JoystickButton(joy, RobotMap.y);
+	public JoystickButton rotate60 = new JoystickButton(joy, RobotMap.a);
 	public JoystickButton lightButton = new JoystickButton(joy, RobotMap.shineLight); // right bumper (boost is right trigger)
 	
 	// J.Manning 02.08.2017 - For assignments like this, you need to have the 
@@ -60,7 +61,10 @@ public class OI {
 		lightButton.whileHeld(new ShineLight());
 		reverseCollectButton.whileHeld(new ReverseCollect());
 		
+		// for debugging commands to be used in Auto
 		driveThree.whenPressed(new DriveStraight(12));
+		rotate60.whenPressed(new TurnToAngle(360));
+		
 		
 		//cameraSwapButton.whenPressed(new SwapCameras());
 		

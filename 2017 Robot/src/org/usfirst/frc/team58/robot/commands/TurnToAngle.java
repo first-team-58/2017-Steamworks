@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TurnToAngle extends Command {
 
 	public double angle = 0; //value that holds the target angle
-	public double adjustmentRatio = 1; //this value is multiplied by the difference between the target angle and the current angle
+	public double adjustmentRatio = 0.05; //this value is multiplied by the difference between the target angle and the current angle
 	public double angleSensitivity = 1; //Acceptable tollerence for angle
 	
     public TurnToAngle(double angle) {
@@ -26,7 +26,8 @@ public class TurnToAngle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.drive(0, (angle - Robot.driveTrain.getAngle()) * adjustmentRatio);
+    	System.out.println(Robot.driveTrain.getAngle());
+    	Robot.driveTrain.drive(0, -(angle - Robot.driveTrain.getAngle()) * adjustmentRatio);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -30,10 +30,10 @@ public class Shooter extends Subsystem{
 		//Got PID values from preferences in Robot.java. Set them in the talon.
 		double[] shooterPID = Dashboard.getShooterPID();
 		//shooterMotor.setProfile(0);
-		shooterMotor.setP(shooterPID[0]);
-		shooterMotor.setI(shooterPID[1]);
-		shooterMotor.setD(shooterPID[2]);
-		shooterMotor.setF(shooterPID[3]);
+		shooterMotor.setP(0.3);
+		shooterMotor.setI(0.0002);
+		shooterMotor.setD(0);
+		shooterMotor.setF(0.08);
 	}
 	 
 	public void Shoot(double shootSpeed){

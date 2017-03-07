@@ -16,9 +16,14 @@ public class DriveStraight extends Command{
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	// make sure robot drives backwards if distance is neg
     	Robot.driveTrain.setSetpoint(distance);
-    	Robot.driveTrain.setOutputRange(-1.0, 1.0);
-    	//Robot.driveTrain.getPIDController().setPID(p, i, d);
+    	if (distance < 0) {
+        	Robot.driveTrain.setOutputRange(-1.0, 0);
+    	} else {
+    		Robot.driveTrain.setOutputRange(0, 1.0);
+    	}
+    	Robot.driveTrain.getPIDController().setPID(0.2, 0, 0);
     	Robot.driveTrain.getPIDController().setAbsoluteTolerance(3);
     	Robot.driveTrain.resetDistance();
     	Robot.driveTrain.gyroReset();
@@ -28,7 +33,8 @@ public class DriveStraight extends Command{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	System.out.println(Robot.driveTrain.getDistance());
+    	System.out.println(Robot.driveTrain.getAngle());
     	
     }
 
