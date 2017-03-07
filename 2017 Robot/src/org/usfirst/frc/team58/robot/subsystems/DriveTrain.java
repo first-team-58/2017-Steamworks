@@ -87,6 +87,7 @@ public class DriveTrain extends PIDSubsystem {
 	public void drive(double moveValue, double rotateValue){
 	   	if(!this.getPIDController().isEnabled()) {
 	   		drive.arcadeDrive(moveValue, rotateValue);
+	   		//System.out.println(System.currentTimeMillis() + " : Printout of time");
 	   	}
 	}
 	

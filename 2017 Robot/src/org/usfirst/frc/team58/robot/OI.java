@@ -3,6 +3,8 @@ package org.usfirst.frc.team58.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
+
 import org.usfirst.frc.team58.robot.commands.*;
 
 /**
@@ -51,6 +53,8 @@ public class OI {
 	public JoystickButton rotate60 = new JoystickButton(joy, RobotMap.a);
 	public JoystickButton lightButton = new JoystickButton(joy, RobotMap.shineLight); // right bumper (boost is right trigger)
 	
+	public AmpTrigger popcornAmp = new AmpTrigger(RobotMap.popcornMotor, 5.0);
+	
 	// J.Manning 02.08.2017 - For assignments like this, you need to have the 
 	// code in some sort of method that actually runs it.
 	public OI() {
@@ -66,10 +70,32 @@ public class OI {
 		rotate60.whenPressed(new TurnToAngle(360));
 		
 		
+		
 		//cameraSwapButton.whenPressed(new SwapCameras());
 		
 
 		// T.Hansen 02.01.2017 - Moved Solenoid into DriveTrain subsystem
+	}
+	
+	public class AmpTrigger extends Trigger {
+		private int port = -1;
+		private double limit = 0;
+		
+		public AmpTrigger(int port, double limit) {
+			this.port = port;
+			this.limit = limit;
+		}
+		
+		@Override
+		public boolean get() {
+			if(Robot.pdp.getCurrent(port) > limit) {
+				//System.out.println("Run amp" + Robot.pdp.getCurrent(port) + " " + limit);
+				return true;	
+			}
+			//System.out.println("Dont Run amp");
+			return false;
+		}
+		
 	}
 	
 }

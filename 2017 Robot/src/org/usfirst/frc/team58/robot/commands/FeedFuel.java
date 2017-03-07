@@ -29,19 +29,21 @@ public class FeedFuel extends Command{
     	maxPopperCurrent = Dashboard.getMaxPopperCurrent();
     	Robot.popcornMachine.runPopcornMotor(motorSpeed);
     	
-
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     	double PopperCurrent = Robot.getPopperCurrent();
     	if (PopperCurrent < maxPopperCurrent){
     		Robot.popcornMachine.runPopcornMotor(motorSpeed);
+        	System.out.println("Running forward " + Robot.pdp.getCurrent(RobotMap.popcornMotor) + " " + maxPopperCurrent);
+
     	} else {
-    		long start = System.currentTimeMillis();
-    		while (System.currentTimeMillis() < (start+500)){
-        		Robot.popcornMachine.runPopcornMotor(-motorSpeed);
-    		}
+    		//This is pausing drive train.
+    		Robot.popcornMachine.runPopcornMotor(-motorSpeed);
+        	System.out.println("Running reverse " + Robot.pdp.getCurrent(RobotMap.popcornMotor) + " " + maxPopperCurrent);
+
     	}
     	
     }

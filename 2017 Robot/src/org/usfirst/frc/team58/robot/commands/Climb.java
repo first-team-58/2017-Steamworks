@@ -47,14 +47,13 @@ public class Climb extends Command{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climber.climb(climberSpeed);
-//    	double motorCurrent = Robot.getClimberCurrent();
-//    	if (motorCurrent < maxClimberCurrent){
-//    		Robot.climber.climb(climberSpeed);
-//    		
-//    	} else {
-//    		Robot.climber.climb(0);
-//    	}
+    	//Robot.climber.climb(climberSpeed);
+    	double motorCurrent = Robot.getClimberCurrent();
+    	if (motorCurrent < maxClimberCurrent){
+    		Robot.climber.climb(climberSpeed);
+    	} else {
+    		Robot.climber.climb(0);
+    	}
     	
     }
 
