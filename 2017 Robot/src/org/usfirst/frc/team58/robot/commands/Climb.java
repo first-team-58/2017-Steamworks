@@ -53,6 +53,7 @@ public class Climb extends Command{
     		Robot.climber.climb(climberSpeed);
     	} else {
     		Robot.climber.climb(0);
+    		System.out.println("Climber current: " + motorCurrent);
     	}
     	
     }

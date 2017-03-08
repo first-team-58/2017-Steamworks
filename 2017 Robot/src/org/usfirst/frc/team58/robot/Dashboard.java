@@ -67,7 +67,7 @@ public class Dashboard {
 		driverI = prefs.getDouble("Driver I Value", 0);
 		driverD = prefs.getDouble("Driver D Value", 0);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.3);
-		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 5);
+		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 12);
 		maxPopperCurrent = prefs.getDouble("Max Popper Current", 5);
 	}
 	
