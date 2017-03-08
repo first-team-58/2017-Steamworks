@@ -49,6 +49,9 @@ public class OI {
 	public JoystickButton reverseCollectButton = new JoystickButton(oper, RobotMap.reverse);
 	public JoystickButton feedButton = new JoystickButton(oper, RobotMap.x);
 	//public JoystickButton cameraSwapButton =  new JoystickButton(joy, RobotMap.swapCamera);
+	
+	public JoystickButton testAuto = new JoystickButton(joy, RobotMap.x);
+	
 	public JoystickButton driveThree = new JoystickButton(joy, RobotMap.y);
 	public JoystickButton rotate60 = new JoystickButton(joy, RobotMap.a);
 	public JoystickButton lightButton = new JoystickButton(joy, RobotMap.shineLight); // right bumper (boost is right trigger)
@@ -69,7 +72,7 @@ public class OI {
 		driveThree.whenPressed(new DriveStraight(12));
 		rotate60.whenPressed(new TurnToAngle(360));
 		
-		
+		testAuto.whenPressed(new DriveStraightTime(1225));
 		
 		//cameraSwapButton.whenPressed(new SwapCameras());
 		
