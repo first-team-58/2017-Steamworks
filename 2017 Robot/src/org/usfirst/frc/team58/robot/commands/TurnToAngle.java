@@ -20,6 +20,7 @@ public class TurnToAngle extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("starting turn to angle");
     	Robot.driveTrain.gyroReset();
     	Robot.driveTrain.drive(0, 0);
     }
@@ -33,6 +34,7 @@ public class TurnToAngle extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         if((angle - Robot.driveTrain.getAngle()) < angleSensitivity) {
+        	System.out.println("done turning!");
         	return true;
         } else {
         	return false;

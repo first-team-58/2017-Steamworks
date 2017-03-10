@@ -6,13 +6,15 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveStraightTime extends Command{
 	private long time;
+	private double move;
 	private long start;
 	
-	public DriveStraightTime(long time) {
+	public DriveStraightTime(long time, double move) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
     	this.time = time;
+    	this.move = move;
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +30,7 @@ public class DriveStraightTime extends Command{
     protected void execute() {
     	System.out.println(Robot.driveTrain.getDistance());
     	System.out.println(Robot.driveTrain.getAngle());
-    	Robot.driveTrain.drive(1, Robot.driveTrain.getAngle() * .2);
+    	Robot.driveTrain.drive(move, Robot.driveTrain.getAngle() * .2);
     }
 
     // Make this return true when this Command no longer needs to run execute()

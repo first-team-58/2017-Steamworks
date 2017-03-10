@@ -69,10 +69,10 @@ public class OI {
 		reverseCollectButton.whileHeld(new ReverseCollect());
 		
 		// for debugging commands to be used in Auto
-		driveThree.whenPressed(new DriveStraight(12));
-		rotate60.whenPressed(new TurnToAngle(360));
+		//driveThree.whenPressed(new DriveStraight(12));
+		//rotate60.whenPressed(new TurnToAngle(360));
 		
-		testAuto.whenPressed(new DriveStraightTime(1225));
+		//testAuto.whenPressed(new ALeftGear());
 		
 		//cameraSwapButton.whenPressed(new SwapCameras());
 		

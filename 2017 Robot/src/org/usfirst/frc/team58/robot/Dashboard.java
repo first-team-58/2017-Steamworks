@@ -80,12 +80,12 @@ public class Dashboard {
 		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
 		autoChooser.addObject("Left Gear", new ALeftGear());
 		autoChooser.addObject("Right Gear", new ARightGear());
-		autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
-		autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
-		autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
-		autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
-		autoChooser.addObject("Shoot to the Left", new AShootLeft());
-		autoChooser.addObject("Shoot to the Right", new AShootRight());
+		//autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
+		//autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
+		//autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());
+		//autoChooser.addObject("Left Hopper and Shoot", new ALeftHopperShoot());
+		//autoChooser.addObject("Shoot to the Left", new AShootLeft());
+		//autoChooser.addObject("Shoot to the Right", new AShootRight());
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		
 	}
