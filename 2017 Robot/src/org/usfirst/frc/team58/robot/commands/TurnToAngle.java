@@ -33,7 +33,7 @@ public class TurnToAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if((angle - Robot.driveTrain.getAngle()) < angleSensitivity) {
+        if(Math.abs(angle - Robot.driveTrain.getAngle()) < angleSensitivity) {
         	System.out.println("done turning!");
         	return true;
         } else {

@@ -72,7 +72,7 @@ public class OI {
 		//driveThree.whenPressed(new DriveStraight(12));
 		//rotate60.whenPressed(new TurnToAngle(360));
 		
-		//testAuto.whenPressed(new ALeftGear());
+		testAuto.whenPressed(new AdjustAngle());
 		
 		//cameraSwapButton.whenPressed(new SwapCameras());
 		

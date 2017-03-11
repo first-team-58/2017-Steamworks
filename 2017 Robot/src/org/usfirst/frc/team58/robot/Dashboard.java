@@ -52,7 +52,7 @@ public class Dashboard {
 	 */
 	public static void addPreferences(){
 		prefs = Preferences.getInstance();
-		climberSpeed = prefs.getDouble("Climber Motor Speed", 1.0);
+		climberSpeed = prefs.getDouble("Climber Motor Speed", 1);
 		//Changed shooterSpeed from 1.0 to -1.0 in attempt to reverse direction 2/19/17 Sean
 		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -3500);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 1);
@@ -67,7 +67,7 @@ public class Dashboard {
 		driverI = prefs.getDouble("Driver I Value", 0);
 		driverD = prefs.getDouble("Driver D Value", 0);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.3);
-		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 40);
+		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 50);
 		maxPopperCurrent = prefs.getDouble("Max Popper Current", 5);
 	}
 	

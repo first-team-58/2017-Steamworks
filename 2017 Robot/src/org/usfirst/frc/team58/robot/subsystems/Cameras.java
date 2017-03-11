@@ -10,7 +10,7 @@ import edu.wpi.cscore.UsbCamera;
 public class Cameras extends Subsystem {
 
 	private boolean frontFacing;
-	public UsbCamera frontCamera;
+	public static UsbCamera frontCamera;
 	public UsbCamera rearCamera;
 	public UsbCamera currentCam;
 	
@@ -65,6 +65,10 @@ public class Cameras extends Subsystem {
     		System.out.println("swaping to front");
     		frontFacing = !frontFacing;
     	}
+    }
+    
+    public static UsbCamera getCam(){
+    	return frontCamera;
     }
 }
 
