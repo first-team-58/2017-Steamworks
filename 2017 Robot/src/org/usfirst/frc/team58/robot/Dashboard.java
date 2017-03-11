@@ -7,6 +7,7 @@ import org.usfirst.frc.team58.robot.commands.AMiddleGear;
 import org.usfirst.frc.team58.robot.commands.ARightGear;
 import org.usfirst.frc.team58.robot.commands.ARightGearShoot;
 import org.usfirst.frc.team58.robot.commands.ARightHopperShoot;
+import org.usfirst.frc.team58.robot.commands.AShootFromWall;
 import org.usfirst.frc.team58.robot.commands.AShootLeft;
 import org.usfirst.frc.team58.robot.commands.AShootRight;
 
@@ -80,6 +81,7 @@ public class Dashboard {
 		autoChooser.addDefault("Default program: Middle Gear", new AMiddleGear());
 		autoChooser.addObject("Left Gear", new ALeftGear());
 		autoChooser.addObject("Right Gear", new ARightGear());
+		autoChooser.addObject("Shoot From Wall", new AShootFromWall());
 		//autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
 		//autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
 		//autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());

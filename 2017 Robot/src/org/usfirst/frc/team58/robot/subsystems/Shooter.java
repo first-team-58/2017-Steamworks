@@ -51,7 +51,7 @@ public class Shooter extends Subsystem{
 		shooterMotor.set(0);
 	}
 	
-	//public double getRate(){
-		//return shooterMotor.getSpeed();
-	//}
+	public double getRate(){
+		return shooterMotor.getSpeed();
+	}
 }
