@@ -14,6 +14,7 @@ public class AMiddleGear extends CommandGroup{
 		 * addSequential(FindLift);
 		 * addSequential(DriveTowardsLift);
 		 */
-		addSequential(new DriveStraight(80));
+		System.out.println("middle gear program");
+		addSequential(new DriveStraightTime(1100, 1));
 	}
 }

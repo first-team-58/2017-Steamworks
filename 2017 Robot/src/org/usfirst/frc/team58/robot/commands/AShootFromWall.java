@@ -22,7 +22,7 @@ public class AShootFromWall extends Command{
     protected void initialize() {
     	shootSpeed = Dashboard.getShooterSpeed();
     	popcornSpeed = Dashboard.getPopcornSpeed();
-    	maxPopcornCurrent = Dashboard.getMaxPopperCurrent()
+    	maxPopcornCurrent = Dashboard.getMaxPopperCurrent();
     	
     	Robot.shooter.Shoot(shootSpeed);
     	shooterUpToSpeed = false;
@@ -35,7 +35,7 @@ public class AShootFromWall extends Command{
     	
     	// only runs popcorn machine when shooter is up to speed
     	if (shooterUpToSpeed){ 
-    		if(Robot.getPopperCurrent() > maxPopcornCurrent)) {
+    		if(Robot.getPopperCurrent() > maxPopcornCurrent) {
     			Robot.popcornMachine.runPopcornMotor(-popcornSpeed);
     		} else {
     			Robot.popcornMachine.runPopcornMotor(popcornSpeed);

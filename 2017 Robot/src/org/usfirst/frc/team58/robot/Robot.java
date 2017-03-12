@@ -73,6 +73,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		
+		
+		
 		double[] driverPID = Dashboard.getDriverPID();
 		driveTrain = new DriveTrain(driverPID[0], driverPID[1], driverPID[2]);
 		
@@ -85,8 +87,8 @@ public class Robot extends IterativeRobot {
 		cameras = new Cameras();
 		oi = new OI();
 		
-		Dashboard.initDashboard();
 		
+		Dashboard.initDashboard();
 		autonomousCommand = Dashboard.getAutoProgram();
 		
 		//CameraServer.getInstance().startAutomaticCapture(new UsbCamera("cam1", 1));
@@ -122,6 +124,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		
+
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

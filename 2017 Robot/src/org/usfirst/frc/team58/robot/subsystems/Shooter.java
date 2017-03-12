@@ -19,7 +19,9 @@ public class Shooter extends Subsystem{
 	}
 	
 	public Shooter(){
+		
 		shooterMotor = new CANTalon(RobotMap.shooterMotor);
+		
 		shooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		shooterMotor.reverseSensor(true);
 		
@@ -34,16 +36,23 @@ public class Shooter extends Subsystem{
 		shooterMotor.setI(0.0002);
 		shooterMotor.setD(0);
 		shooterMotor.setF(0.08);
+		
 	}
 	 
 	public void Shoot(double shootSpeed){
+		
+		
 		if (shooterMotor.getControlMode() == TalonControlMode.Speed) {
 			System.out.println(shooterMotor.getSpeed());
+			System.out.println("not shooting");
 		} else {
 			shooterMotor.changeControlMode(TalonControlMode.Speed);
 			shooterMotor.set(shootSpeed);
+
+			System.out.println("SHOOTING");
 			//System.out.println(shooterMotor.getSpeed());
 		}
+		
 	}
 	
 	public void disable() {

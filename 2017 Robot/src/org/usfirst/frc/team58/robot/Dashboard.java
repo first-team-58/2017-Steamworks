@@ -58,7 +58,7 @@ public class Dashboard {
 		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -3500);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 1);
 		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", .8);
-		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 1);
+		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 0.7);
 		shootDistance = prefs.getDouble("Shoot Distance", 0.5); // what is the unit on this?
 		shooterP = prefs.getDouble("Shooter P Value", 0.3);    
 		shooterI = prefs.getDouble("Shooter I Value", 0.0002);

@@ -16,6 +16,7 @@ public class ARightGear extends CommandGroup{
 		 */
 		
 		//These values are subject to change.
+		System.out.println("right gear program");
 		addSequential(new DriveStraightTime(1258, 1));
 		addSequential(new TurnToAngle(-50));
 		//addSequential(new AdjustAngle());
