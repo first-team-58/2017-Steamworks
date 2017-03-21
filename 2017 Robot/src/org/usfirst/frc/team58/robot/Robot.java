@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.vision.VisionThread;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,9 @@ public class Robot extends IterativeRobot {
 	public static AimingLight aimingLight;
 	public static PowerDistributionPanel pdp;
 	public static Cameras cameras;
+	
+	public static VisionThread visionThread;
+	private static Object imgLock = new Object();
 	
 	private static Mat blurOutput = new Mat();
 	private static Mat hsvThresholdOutput = new Mat();
@@ -188,6 +192,21 @@ public class Robot extends IterativeRobot {
 	// RML 2-19-2017 Pop Popper check current for jam
 	public static double getPopperCurrent(){
 		return pdp.getCurrent(RobotMap.popcornMotor);
+	}
+	
+	public static void initVision() {
+	    visionThread = new VisionThread(cameras.getCam(), new GripPipeline(), pipeline -> {
+	        if (!pipeline.filterContoursOutput().isEmpty()) {
+	            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+	            synchronized (imgLock) {
+	            	//this is where we get the information from the vision stuff
+	            	//This center variable is what stores the center of the vision target on the screen right now, we can change
+	            	//this to whatever we need it to be, as well as get more information.
+	                centerX = r.x + (r.width / 2);
+	            }
+	        }
+	    });
+	    visionThread.start();
 	}
 	
 	public static void process(Mat source0) {
