@@ -67,7 +67,7 @@ public class Cameras extends Subsystem {
     	}
     }
     
-    public static UsbCamera getCam(){
+    public UsbCamera getCam(){
     	return frontCamera;
     }
 }

@@ -62,7 +62,7 @@ public class Robot extends IterativeRobot {
 	private static Mat cvErodeOutput = new Mat();
 	private static ArrayList<MatOfPoint> findContoursOutput = new ArrayList<MatOfPoint>();
 	public static ArrayList<MatOfPoint> filterContoursOutput = new ArrayList<MatOfPoint>();
-	double[] centerX;
+	public static int centerX;
 	static Mat blurInput;
 	static {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -94,6 +94,8 @@ public class Robot extends IterativeRobot {
 		
 		Dashboard.initDashboard();
 		autonomousCommand = Dashboard.getAutoProgram();
+		
+		initVision();
 		
 		//CameraServer.getInstance().startAutomaticCapture(new UsbCamera("cam1", 1));
 			
@@ -207,6 +209,15 @@ public class Robot extends IterativeRobot {
 	        }
 	    });
 	    visionThread.start();
+	    visionThread.wait();
+	}
+	
+	public static void startVision(){
+		visionThread.notify();
+	}
+	
+	public static void stopVision(){
+		visionThread.wait();
 	}
 	
 	public static void process(Mat source0) {

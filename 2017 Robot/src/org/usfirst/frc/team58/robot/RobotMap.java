@@ -48,5 +48,10 @@ public class RobotMap {
 	public static int a = 1; // spin up
 	public static int x = 3; // feed fuel
 	public static int reverse = 6; //reverse collector
+	
+	//Stuff for gear vision
+	public static int gearTargetX = 0;
+	public static double gearTargetAngleMult = .1;
+	public static int gearTargetTollerence = 10;
 
 }
