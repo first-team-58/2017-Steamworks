@@ -56,6 +56,7 @@ public class Robot extends IterativeRobot {
 	
 	public static VisionThread visionThread;
 	private static Object imgLock = new Object();
+	public static Boolean visionEnabled = false;
 	
 	private static Mat blurOutput = new Mat();
 	private static Mat hsvThresholdOutput = new Mat();
@@ -94,8 +95,13 @@ public class Robot extends IterativeRobot {
 		
 		Dashboard.initDashboard();
 		autonomousCommand = Dashboard.getAutoProgram();
-		
+		try {
 		initVision();
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			visionEnabled = false;
+		}
 		
 		//CameraServer.getInstance().startAutomaticCapture(new UsbCamera("cam1", 1));
 			
@@ -196,7 +202,7 @@ public class Robot extends IterativeRobot {
 		return pdp.getCurrent(RobotMap.popcornMotor);
 	}
 	
-	public static void initVision() {
+	public static void initVision() throws InterruptedException {
 	    visionThread = new VisionThread(cameras.getCam(), new GripPipeline(), pipeline -> {
 	        if (!pipeline.filterContoursOutput().isEmpty()) {
 	            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
@@ -210,13 +216,14 @@ public class Robot extends IterativeRobot {
 	    });
 	    visionThread.start();
 	    visionThread.wait();
+	    visionEnabled = true;
 	}
 	
 	public static void startVision(){
 		visionThread.notify();
 	}
 	
-	public static void stopVision(){
+	public static void stopVision() throws InterruptedException{
 		visionThread.wait();
 	}
 	
