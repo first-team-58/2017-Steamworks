@@ -42,8 +42,10 @@ public class Cameras extends Subsystem {
 			DriverStation.reportError("Failed to set up rear camera: ", true);
 		}
 		*/
-		currentCam = frontCamera;
+		/*currentCam = frontCamera;
 		CameraServer.getInstance().startAutomaticCapture(0);
+		CameraServer.getInstance().startAutomaticCapture(1);
+*/
 
 		/*
 		try {
@@ -55,7 +57,7 @@ public class Cameras extends Subsystem {
 		*/
     }
     
-    public void swapCameras() {
+   /* public void swapCameras() {
     	if(frontFacing) {
     		CameraServer.getInstance().startAutomaticCapture(1);
     		System.out.println("swaping to rear");
@@ -67,8 +69,10 @@ public class Cameras extends Subsystem {
     	}
     }
     
-    public static UsbCamera getCam(){
+    */ /* public static UsbCamera getCam(){
     	return frontCamera;
+    	
     }
+    */
 }
 

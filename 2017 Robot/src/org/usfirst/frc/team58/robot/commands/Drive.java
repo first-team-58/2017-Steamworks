@@ -35,7 +35,7 @@ public class Drive extends Command {
     	if (moveValue<-.9){
     		moveValue=-1;
     	}
-    	
+    	    	 
     	//Deadbands for driving controllers
     	if ((moveValue <= 0.2) && (moveValue >= -0.2)){
     		moveValue = 0;

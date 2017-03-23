@@ -4,12 +4,12 @@ import org.usfirst.frc.team58.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class DriveStraightTime extends Command{
+public class DriveStraightNoNAVX extends Command{
 	private long time;
 	private double move;
 	private long start;
 	
-	public DriveStraightTime(long time, double move) {
+	public DriveStraightNoNAVX(long time, double move) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
@@ -24,6 +24,7 @@ public class DriveStraightTime extends Command{
     	start = System.currentTimeMillis();
     	System.out.println("starting drive straight");
     	Robot.driveTrain.gyroReset();
+    	Robot.driveTrain.drive(move, 0);
   
     }
 
@@ -31,7 +32,7 @@ public class DriveStraightTime extends Command{
     protected void execute() {
     	System.out.println(Robot.driveTrain.getDistance());
     	System.out.println(Robot.driveTrain.getAngle());
-    	Robot.driveTrain.drive(move, Robot.driveTrain.getAngle() * .2);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,3 +55,4 @@ public class DriveStraightTime extends Command{
     	Robot.driveTrain.drive(0, 0);
     }
 }
+
