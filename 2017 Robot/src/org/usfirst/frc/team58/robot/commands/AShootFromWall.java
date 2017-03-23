@@ -36,7 +36,7 @@ public class AShootFromWall extends Command{
     	// only runs popcorn machine when shooter is up to speed
     	if (shooterUpToSpeed){ 
     		if(Robot.getPopperCurrent() > maxPopcornCurrent) {
-    			Robot.popcornMachine.runPopcornMotor(-popcornSpeed);
+    			Robot.popcornMachine.runPopcornMotor(-1);
     		} else {
     			Robot.popcornMachine.runPopcornMotor(popcornSpeed);
     		}

@@ -144,6 +144,7 @@ public class Robot extends IterativeRobot {
 		 * = new MyAutoCommand(); break; case "Default Auto": default:
 		 * autonomousCommand = new ExampleCommand(); break; }
 		 */
+		autonomousCommand = Dashboard.getAutoProgram();
 
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)

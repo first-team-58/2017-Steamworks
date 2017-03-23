@@ -41,7 +41,7 @@ public class FeedFuel extends Command{
 
     	} else {
     		//This is pausing drive train.
-    		Robot.popcornMachine.runPopcornMotor(-motorSpeed);
+    		Robot.popcornMachine.runPopcornMotor(-1);
         	System.out.println("Running reverse " + Robot.pdp.getCurrent(RobotMap.popcornMotor) + " " + maxPopperCurrent);
 
     	}
