@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TurnToAngle extends Command {
 
 	public double angle = 0; //value that holds the target angle
-	public double adjustmentRatio = 0.05; //this value is multiplied by the difference between the target angle and the current angle
-	public double angleSensitivity = 1; //Acceptable tollerence for angle
+	public double adjustmentRatio = 0.03; //this value is multiplied by the difference between the target angle and the current angle
+	public double angleSensitivity = 2; //Acceptable tollerence for angle
 	
     public TurnToAngle(double angle) {
     	requires(Robot.driveTrain);

@@ -50,7 +50,7 @@ public class Cameras extends Subsystem {
 			CameraServer.getInstance().addCamera(currentCam);
 			CameraServer.getInstance().startAutomaticCapture();
 		} catch (Exception e) {
-			DriverStation.reportError("Failed to add camera to server: ", true);
+			DriverStation.reportError("Failed to add camera to   server: ", true);
 		}
 		*/
     }
