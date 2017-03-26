@@ -8,6 +8,8 @@ import org.usfirst.frc.team58.robot.commands.ARightGear;
 import org.usfirst.frc.team58.robot.commands.ARightGearShoot;
 import org.usfirst.frc.team58.robot.commands.ARightHopperShoot;
 import org.usfirst.frc.team58.robot.commands.AShootFromWall;
+import org.usfirst.frc.team58.robot.commands.AShootBaselineRed;
+import org.usfirst.frc.team58.robot.commands.AShootBaselineBlue;
 import org.usfirst.frc.team58.robot.commands.AShootLeft;
 import org.usfirst.frc.team58.robot.commands.AShootRight;
 
@@ -67,7 +69,7 @@ public class Dashboard {
 		driverP = prefs.getDouble("Driver P Value", 0.5);
 		driverI = prefs.getDouble("Driver I Value", 0);
 		driverD = prefs.getDouble("Driver D Value", 0);
-		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.3);
+		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.5);
 		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 50);
 		maxPopperCurrent = prefs.getDouble("Max Popper Current", 5);
 	}
@@ -82,6 +84,8 @@ public class Dashboard {
 		autoChooser.addObject("Left Gear", new ALeftGear());
 		autoChooser.addObject("Right Gear", new ARightGear());
 		autoChooser.addObject("Shoot From Wall", new AShootFromWall());
+		autoChooser.addObject("Shoot Cross RED", new AShootBaselineRed());
+		autoChooser.addObject("Shoot Cross BLUE", new AShootBaselineBlue());
 		//autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
 		//autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
 		//autoChooser.addObject("Right Hopper and Shoot", new ARightHopperShoot());

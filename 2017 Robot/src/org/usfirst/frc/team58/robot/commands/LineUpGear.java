@@ -23,8 +23,10 @@ public class LineUpGear extends Command {
 	protected void initialize() {
 		if (Robot.visionEnabled) {
 			Robot.startVision();
-			// get difference between target center and robot center.
+			// get difference between target center and robot center. robot.centerX is in Robot.java
 			dif = RobotMap.gearTargetX - Robot.centerX;
+			System.out.println(dif);
+			System.out.println("# of contours: " + Robot.contCount);
 			// calculate angle to turn from that difference, remember dif is
 			// just pixles!
 			angle = dif * RobotMap.gearTargetAngleMult;
@@ -33,6 +35,7 @@ public class LineUpGear extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		System.out.println(angle);
 		new TurnToAngle(angle);
 	}
 

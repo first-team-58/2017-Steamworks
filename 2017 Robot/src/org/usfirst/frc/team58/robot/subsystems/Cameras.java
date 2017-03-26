@@ -26,25 +26,30 @@ public class Cameras extends Subsystem {
     
     private void initCameras() {
 		//initialize the cameras
-		frontFacing = true;
-		/*
-		try {
+		
+		/* commented this out 3.26 - tyler
+		 * try {
+		 
 			frontCamera = new UsbCamera("cam0", 0);
 		} catch (Exception e) {
 			frontCamera = null;
 			DriverStation.reportError("Failed to set up front camera: ", true);
 		}
-		
-		try {
+		*/
+    	
+		/*try {
 			rearCamera = new UsbCamera("cam1", 1);
 		} catch (Exception e) {
 			rearCamera = null;
 			DriverStation.reportError("Failed to set up rear camera: ", true);
 		}
 		*/
+		
+		
 		currentCam = frontCamera;
-		CameraServer.getInstance().startAutomaticCapture(0);
-
+		frontCamera = CameraServer.getInstance().startAutomaticCapture(0);
+		
+		
 		/*
 		try {
 			CameraServer.getInstance().addCamera(currentCam);
@@ -55,18 +60,18 @@ public class Cameras extends Subsystem {
 		*/
     }
     
-    public void swapCameras() {
+   /* public void swapCameras() {
     	if(frontFacing) {
     		CameraServer.getInstance().startAutomaticCapture(1);
     		System.out.println("swaping to rear");
     		frontFacing = !frontFacing;
     	} else {
-    		CameraServer.getInstance().startAutomaticCapture(0);
+    		CameraServer.getInstance().startAutom aticCapture(0);
     		System.out.println("swaping to front");
     		frontFacing = !frontFacing;
     	}
     }
-    
+    */
     public UsbCamera getCam(){
     	return frontCamera;
     }

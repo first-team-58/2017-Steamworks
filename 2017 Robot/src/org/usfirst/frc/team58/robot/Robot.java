@@ -54,6 +54,8 @@ public class Robot extends IterativeRobot {
 	public static PowerDistributionPanel pdp;
 	public static Cameras cameras;
 	
+	public static int contCount;
+	
 	public static VisionThread visionThread;
 	private static Object imgLock = new Object();
 	public static Boolean visionEnabled = false;
@@ -91,6 +93,8 @@ public class Robot extends IterativeRobot {
 		aimingLight = new AimingLight();
 		cameras = new Cameras();
 		oi = new OI();
+		
+
 		
 		
 		Dashboard.initDashboard();
@@ -208,6 +212,7 @@ public class Robot extends IterativeRobot {
 	        if (!pipeline.filterContoursOutput().isEmpty()) {
 	            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
 	            synchronized (imgLock) {
+	            	contCount = pipeline.filterContoursOutput().size();
 	            	//this is where we get the information from the vision stuff
 	            	//This center variable is what stores the center of the vision target on the screen right now, we can change
 	            	//this to whatever we need it to be, as well as get more information.
@@ -216,16 +221,13 @@ public class Robot extends IterativeRobot {
 	        }
 	    });
 	    visionThread.start();
-	    visionThread.wait();
 	    visionEnabled = true;
 	}
 	
 	public static void startVision(){
-		visionThread.notify();
 	}
 	
 	public static void stopVision() throws InterruptedException{
-		visionThread.wait();
 	}
 	
 	public static void process(Mat source0) {

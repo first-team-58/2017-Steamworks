@@ -50,9 +50,10 @@ public class OI {
 	public JoystickButton feedButton = new JoystickButton(oper, RobotMap.x);
 	//public JoystickButton cameraSwapButton =  new JoystickButton(joy, RobotMap.swapCamera);
 	
-	public JoystickButton testAuto = new JoystickButton(joy, RobotMap.x);
+	public JoystickButton rotateNeg30 = new JoystickButton(joy, RobotMap.b);
+	public JoystickButton lineUpGear = new JoystickButton(joy, RobotMap.x);
 	
-	public JoystickButton driveThree = new JoystickButton(joy, RobotMap.y);
+	public JoystickButton rotateNeg60 = new JoystickButton(joy, RobotMap.y);
 	public JoystickButton rotate60 = new JoystickButton(joy, RobotMap.a);
 	public JoystickButton lightButton = new JoystickButton(joy, RobotMap.shineLight); // right bumper (boost is right trigger)
 	
@@ -69,8 +70,13 @@ public class OI {
 		reverseCollectButton.whileHeld(new ReverseCollect());
 		
 		// for debugging commands to be used in Auto
-		//driveThree.whenPressed(new DriveStraight(12));
-		//rotate60.whenPressed(new TurnToAngle(360));
+		rotateNeg60.whenPressed(new TurnPID(-60.0f));
+		rotate60.whenPressed(new TurnPID(60.0f));
+		rotateNeg30.whenPressed(new TurnPID(-30.0f));
+		
+		
+		lineUpGear.whenPressed(new LineUpGear());
+		
 		
 		//testAuto.whenPressed(new AdjustAngle());
 		

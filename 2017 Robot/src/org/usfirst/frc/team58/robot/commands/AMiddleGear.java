@@ -15,6 +15,8 @@ public class AMiddleGear extends CommandGroup{
 		 * addSequential(DriveTowardsLift);
 		 */
 		System.out.println("middle gear program");
-		addSequential(new DriveStraightTime(2558, 0.65));
+		addSequential(new DriveStraightTime(2600, 0.65));//2658 if this is the only thing 2300 if with shimmy
+		//addSequential(new Shimmy());
+		//addSequential(new DriveStraightTime(458,0.65));
 	}
 }

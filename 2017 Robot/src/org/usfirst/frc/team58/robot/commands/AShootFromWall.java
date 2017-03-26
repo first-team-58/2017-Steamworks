@@ -11,19 +11,24 @@ public class AShootFromWall extends Command{
 	double popcornSpeed;
 	boolean shooterUpToSpeed;
 	double maxPopcornCurrent;
+	private long time;
+	private long start;
 	
 	public AShootFromWall() {
     	requires(Robot.shooter);
     	requires(Robot.popcornMachine);
+    	// only runs for 10 sec
+    	time = 10000;
     	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     	shootSpeed = Dashboard.getShooterSpeed();
     	popcornSpeed = Dashboard.getPopcornSpeed();
     	maxPopcornCurrent = Dashboard.getMaxPopperCurrent();
-    	
+    	start = System.currentTimeMillis();
     	Robot.shooter.Shoot(shootSpeed);
     	shooterUpToSpeed = false;
     }
@@ -52,13 +57,18 @@ public class AShootFromWall extends Command{
       	if (Math.abs(currentRate) > 3450) {
     		shooterUpToSpeed = true;
     	}
-    	
-        return false;
+    	// proceed to end after 10 sec
+      	if(System.currentTimeMillis() < (start + time)) {
+        	return false;
+        } else {
+        	return true;
+        }
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.shooter.Shoot(0);
+    	Robot.shooter.disable();
     	Robot.popcornMachine.runPopcornMotor(0);
     }
 
