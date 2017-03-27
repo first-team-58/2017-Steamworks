@@ -41,7 +41,7 @@ public class RobotMap {
 	public static int triggerAxis = 3;
 	public static int swapCamera = 4; // driver joystick y button
 	public static int shineLight = 6; // driver joystick right bumper
-	
+	 
 	// buttons on operator joystick
 	public static int y = 4; // climb
 	public static int b = 2; // collect

@@ -211,6 +211,7 @@ public class Robot extends IterativeRobot {
 	    visionThread = new VisionThread(cameras.getCam(), new GripPipeline(), pipeline -> {
 	        if (!pipeline.filterContoursOutput().isEmpty()) {
 	            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+	           
 	            synchronized (imgLock) {
 	            	contCount = pipeline.filterContoursOutput().size();
 	            	//this is where we get the information from the vision stuff
