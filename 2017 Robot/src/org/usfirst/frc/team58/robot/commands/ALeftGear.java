@@ -16,10 +16,10 @@ public class ALeftGear extends CommandGroup{
 		 */
 		
 		//These values are subject to change.
-		addSequential(new DriveStraightTime(1658, 0.85));
+		addSequential(new DriveStraightTime(3258, 0.65)); //1558 and 0.85 originally. changed to 0.65 speed and longer time becuase DriveStraightTime shimmies if not on 0.65 speed.
 		addSequential(new DriveStraightTime(258,0));
 		addSequential(new TurnPID(58f));
-		addSequential(new DriveStraightNoNAVX(258, 0));
-		addSequential(new DriveStraightNoNAVX(1358, 0.65));
+		addSequential(new DriveStraightNoNAVX(558, 0));
+		addSequential(new DriveStraightTime(458, 0.65));
 	}
 }

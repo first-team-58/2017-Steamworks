@@ -30,7 +30,7 @@ public class DriveStraightTime extends Command{
     protected void execute() {
     	System.out.println(Robot.driveTrain.getDistance());
     	System.out.println(Robot.driveTrain.getAngle());
-    	Robot.driveTrain.drive(move, Robot.driveTrain.getAngle() * .2);
+    	Robot.driveTrain.drive(move, Robot.driveTrain.getAngle() * .258);//was .2 set by Jack and jAKE WITH tESS AT PRACTICE FEILD
     }
 
     // Make this return true when this Command no longer needs to run execute()

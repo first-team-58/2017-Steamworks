@@ -24,7 +24,6 @@ public class DriveStraightNoNAVX extends Command{
     	start = System.currentTimeMillis();
     	System.out.println("starting drive straight");
     	Robot.driveTrain.gyroReset();
-    	Robot.driveTrain.drive(move, 0);
   
     }
 
@@ -32,7 +31,7 @@ public class DriveStraightNoNAVX extends Command{
     protected void execute() {
     	System.out.println(Robot.driveTrain.getDistance());
     	System.out.println(Robot.driveTrain.getAngle());
-    	
+    	Robot.driveTrain.drive(move, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,8 +39,9 @@ public class DriveStraightNoNAVX extends Command{
     	System.out.println(System.currentTimeMillis() + " " + (start + time));
         if(System.currentTimeMillis() < (start + time)) {
         	return false;
+        } else {
+        	return true;
         }
-        return true;
     }
 
     // Called once after isFinished returns true

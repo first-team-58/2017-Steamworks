@@ -7,7 +7,7 @@ public class AShootBaselineBlue extends CommandGroup{
 		
 		addSequential(new AShootFromWall());
 		addSequential(new DriveStraightTime(250, -1));
-		addSequential(new TurnPID(60f));
-		addSequential(new DriveStraightTime(1000, 1));
+		addSequential(new TurnPID(80f));
+		addSequential(new DriveStraightNoNAVX(2000,0.65));
 	}
 }

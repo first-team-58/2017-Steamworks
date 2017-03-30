@@ -57,7 +57,7 @@ public class Dashboard {
 		prefs = Preferences.getInstance();
 		climberSpeed = prefs.getDouble("Climber Motor Speed", 1);
 		//Changed shooterSpeed from 1.0 to -1.0 in attempt to reverse direction 2/19/17 Sean
-		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -3500);
+		shooterSpeed = prefs.getDouble("Shooter Motor Speed", -4500);
 		collectorBeltSpeed = prefs.getDouble("Collector Belt Speed", 1);
 		collectorBrushSpeed = prefs.getDouble("Collector Brush Speed", .8);
 		popcornSpeed = prefs.getDouble("Popcorn Machine Motor Speed", 0.7);
@@ -71,7 +71,7 @@ public class Dashboard {
 		driverD = prefs.getDouble("Driver D Value", 0);
 		rotateSpeed = prefs.getDouble("Auto Rotate Speed", 0.5);
 		maxClimberCurrent = prefs.getDouble("Maximum Climber Current", 50);
-		maxPopperCurrent = prefs.getDouble("Max Popper Current", 5);
+		maxPopperCurrent = prefs.getDouble("Max Popper Current", 10);
 	}
 	
 	/**
@@ -84,7 +84,7 @@ public class Dashboard {
 		autoChooser.addObject("Left Gear", new ALeftGear());
 		autoChooser.addObject("Right Gear", new ARightGear());
 		autoChooser.addObject("Shoot From Wall", new AShootFromWall());
-		autoChooser.addObject("Shoot Cross RED", new AShootBaselineRed());
+		autoChooser.addObject("Shoot Cross RED", new AShootBaselineRed()); 
 		autoChooser.addObject("Shoot Cross BLUE", new AShootBaselineBlue());
 		//autoChooser.addObject("Right Gear and Shoot", new ARightGearShoot());
 		//autoChooser.addObject("Left Gear and Shoot", new ALeftGearShoot());
