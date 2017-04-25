@@ -70,12 +70,12 @@ public class OI {
 		reverseCollectButton.whileHeld(new ReverseCollect());
 		
 		// for debugging commands to be used in Auto
-		rotateNeg60.whenPressed(new TurnPID(-60.0f));
-		rotate60.whenPressed(new TurnPID(60.0f));
-		rotateNeg30.whenPressed(new TurnPID(-30.0f));
+		//rotateNeg60.whenPressed(new TurnPID(-60.0f));
+		//rotate60.whenPressed(new TurnPID(60.0f));
+		//rotateNeg30.whenPressed(new TurnPID(-30.0f));
 		
 		
-		lineUpGear.whenPressed(new LineUpGear());
+		//lineUpGear.whenPressed(new LineUpGear());
 		
 		
 		//testAuto.whenPressed(new AdjustAngle());

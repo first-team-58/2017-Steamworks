@@ -26,6 +26,7 @@ public class RobotMap {
 	
 	//Solenoid
 	public static int speedSolenoid = 3;
+	public static int scoopSolenoid = 2;
 	
 	//sensors
 	public static int leftEncoder = 0;
@@ -47,6 +48,7 @@ public class RobotMap {
 	public static int b = 2; // collect
 	public static int a = 1; // spin up
 	public static int x = 3; // feed fuel
+	public static int scoopTriggerAxis = 2;
 	public static int reverse = 6; //reverse collector
 	
 	//Stuff for gear vision

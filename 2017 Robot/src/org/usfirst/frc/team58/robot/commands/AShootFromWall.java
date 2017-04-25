@@ -53,8 +53,8 @@ public class AShootFromWall extends Command{
     protected boolean isFinished() {
     	
     	// gets shooter rate and tells code to run popcorn machine
-    	double currentRate = Robot.shooter.getRate();
-      	if (Math.abs(currentRate) > 3450) {
+    	//double currentRate = Robot.shooter.getRate();
+      	if (System.currentTimeMillis() > (start + 2000)) {
     		shooterUpToSpeed = true;
     	}
     	// proceed to end after 10 sec

@@ -31,6 +31,7 @@ import org.usfirst.frc.team58.robot.subsystems.Climber;
 import org.usfirst.frc.team58.robot.subsystems.Collector;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team58.robot.subsystems.PopcornMachine;
+import org.usfirst.frc.team58.robot.subsystems.Scoop;
 import org.usfirst.frc.team58.robot.subsystems.Shooter;
 
 
@@ -53,6 +54,7 @@ public class Robot extends IterativeRobot {
 	public static AimingLight aimingLight;
 	public static PowerDistributionPanel pdp;
 	public static Cameras cameras;
+	public static Scoop scoop;
 	
 	public static int contCount;
 	
@@ -93,8 +95,7 @@ public class Robot extends IterativeRobot {
 		aimingLight = new AimingLight();
 		cameras = new Cameras();
 		oi = new OI();
-		
-
+		scoop = new Scoop();
 		
 		
 		Dashboard.initDashboard();
