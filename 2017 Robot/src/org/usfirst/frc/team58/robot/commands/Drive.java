@@ -5,6 +5,7 @@ import org.usfirst.frc.team58.robot.RobotMap;
 import org.usfirst.frc.team58.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /* T. Hansen 02.08.2017 - Drive the robot and controls pneumatics for
   speed boost. WAS WORKING ON ANKLEBITER*/
@@ -48,6 +49,10 @@ public class Drive extends Command {
     	}
 
     	
+    	//System.out.println("Left encoder speed: " + Robot.driveTrain.leftEncoder().getRaw());
+    	
+    	SmartDashboard.putData("Left ENC", Robot.driveTrain.leftEncoder());
+    	SmartDashboard.putData("Right ENC", Robot.driveTrain.rightEncoder());
     	Robot.driveTrain.drive(-moveValue, -rotateValue);
 
     	

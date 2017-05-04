@@ -21,41 +21,9 @@ public class DriveTrain extends PIDSubsystem {
 	public static Solenoid speedSolenoid;
 	private RobotDrive drive;
 	//T.Hansen - Declared encoders leftEnc and rightEnc
-	private static Encoder58 leftEnc;
-	private static Encoder58 rightEnc;
+	private static Encoder leftEnc;
+	private static Encoder rightEnc;
 	private static AHRS ahrs = new AHRS(SPI.Port.kMXP);
-	
-	Encoder rightEncoder;
-	
-	private class Encoder58 {
-		private Counter encCount;
-		private double distance = 3;
-		
-		private Encoder58(int port) {
-			encCount = new Counter(port);
-		}
-		
-		private double getRate() {
-			//System.out.println(encCount.get());
-			return encCount.getRate() * distance;
-		}
-		
-		private double getDistance() {
-			return encCount.get() * distance;
-		}
-		
-		private int get() {
-			return encCount.get();
-		}
-		
-		private void setDistancePerPulse(double distance) {
-			this.distance = distance;
-		}
-		
-		private void reset(){
-			encCount.reset();
-		}
-	}
 	
 	public void initDefaultCommand(){
 		setDefaultCommand(new Drive());
@@ -72,15 +40,17 @@ public class DriveTrain extends PIDSubsystem {
 		drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 		
 		//T.Hansen - Contructed encoders leftEnc and rightEnc
-		leftEnc = new Encoder58(0);
-		rightEnc = new Encoder58(1);
-		leftEnc.setDistancePerPulse(3);
-		rightEnc.setDistancePerPulse(3);
+		leftEnc = new Encoder(0,1,false,Encoder.EncodingType.k4X);
+		rightEnc = new Encoder(2,3,false,Encoder.EncodingType.k4X);
+		leftEnc.setDistancePerPulse(1);
+		leftEnc.setReverseDirection(true);
+		rightEnc.setDistancePerPulse(1);
 		
 		// PID control only goes to 3 inches of tolerance
-		setAbsoluteTolerance(3);
+		setAbsoluteTolerance(1);
 		
-		
+		leftEnc.reset();
+		rightEnc.reset();
 		
 	}
 	
@@ -98,6 +68,14 @@ public class DriveTrain extends PIDSubsystem {
 		//double averageDistance = leftDistance / 2 + rightDistance / 2;
 		double averageDistance = rightDistance; // left encoder not working?
 		return averageDistance;
+	}
+	
+	public Encoder leftEncoder() {
+		return leftEnc;
+	}
+	
+	public Encoder rightEncoder() {
+		return rightEnc;
 	}
 	
 	public double getLeft(){
@@ -125,7 +103,7 @@ public class DriveTrain extends PIDSubsystem {
 		// TODO Auto-generated method stub
 		//return getDistance();
 		/// changed to using angle PID
-		return getAngle();
+		return getDistance();
 	}
 
 	public double getAngleCorrection() {
@@ -134,14 +112,14 @@ public class DriveTrain extends PIDSubsystem {
 		if (abs(angle)<2) {
 			return 0;
 		} else {
-			return getAngle();
+			return 0.2*angle;
 		}	
 	}
 	
-	@Override
+	@Override 
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub
-		drive.arcadeDrive(0, output);
+		drive.arcadeDrive(output,getAngleCorrection());
 	}
 	
 	public double getAngle(){

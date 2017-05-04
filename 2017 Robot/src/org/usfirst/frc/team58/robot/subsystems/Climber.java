@@ -16,8 +16,8 @@ public class Climber extends Subsystem {
 	}
 	
 	
-	public Climber(){
-	climberMotor = new Talon(RobotMap.climberMotor);
+	public Climber(){ 
+		climberMotor = new Talon(RobotMap.climberMotor);
 	
 	//atTop = new DigitalInput(6);
 	}
